@@ -1,0 +1,11 @@
+@font-face {
+    font-family:'symbols';
+    src:url("symbols.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-display: swap;
+    src: url("Inter-Regular.woff2") format("woff2");
+}

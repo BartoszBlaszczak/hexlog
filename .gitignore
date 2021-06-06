@@ -1,0 +1,13 @@
+# Default ignored files
+/.idea/workspace.xml
+/build/
+/out/
+/.idea/
+/.gradle/
+/.kotlintest/
+/hidden/
+/logs/
+*.log
+*.lck
+*.jks
+*.sqlite

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+start=$(date +%s%3N)
+
+for i in {1..1000}; do
+  curl -L -s "https://hexlog.dev" > /dev/null
+  curl -L -s "https://hexlog.dev/pl/posts/1.html" > /dev/null
+done
+
+end=$(date +%s%3N)
+durationOfTest=$(( end - start ))
+
+echo "1000 requests in $durationOfTest milliseconds"

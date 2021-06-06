@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>&lt; Hex.log &gt;</title>
+    
+    <meta charset="UTF-8">
+    <meta name="description" content="Blog Programistyczny">
+    <meta name="keywords" content="programowanie, rozwój oprogramowania, rzemiosło programowania, czysty kod, Kotlin, TDD, DDD">
+    <meta name="author" content="Bartosz Błaszczak">
+    <meta name="viewport" content="initial-scale=0.7">
+    
+    <link rel="stylesheet" type="text/css" href="/web/static/style.css">
+    <link rel="stylesheet" type="text/css" href="/web/static/fonts.css">
+    <script src="/web/static/hexlog.js" type="text/javascript" content="text/javascript"></script>
+</head>
+
+<body onresize="resize_posts()">
+<header class="main-header">
+	<a id="about" href="/pl/about" class="main-header-link">O blogu</a>
+    <div id="languages">
+        <a href="/pl" title="polski" class="main-header-link">
+            <img src="/web/static/icons/flag_pl.png" alt="polski" class="language-icon active"/>
+        </a>
+        <a href="/en" title="angielski" class="main-header-link">
+            <img src="/web/static/icons/flag_en.png" alt="angielski" class="language-icon"/>
+        </a>
+    </div>
+	<h1>
+		<br>
+		<a href="/pl" class="main-header-link">
+			<span class="main-header-title">&lt;&nbsp;Hex.log&nbsp;&gt;</span>
+			<BR>
+			<span>Code smart</span><span class="red">!</span>
+		</a>
+	</h1>
+	<br>
+	<h2>
+		<a href="https://github.com/BartoszBlaszczak/hexlog" target="_blank" title="GitHub" class="main-header-link">
+			<img src="/web/static/icons/github.png" alt="GitHub" class="main-header-icon"/>
+		</a>
+		<a href="https://www.linkedin.com/in/bartosz-blaszczak" target="_blank" title="LinkedIn" class="main-header-link">
+			<img src="/web/static/icons/linkedin.png" alt="LinkedIn" class="main-header-icon"/>
+		</a>
+		<a href="https://nofluffjobs.com/pl/profile/BartoszBlaszczak" target="_blank" title="No Fluff Jobs" class="main-header-link">
+			<img src="/web/static/icons/nfj.png" alt="No Fluff Jobs" class="main-header-icon"/>
+		</a>
+		<a href="https://stackoverflow.com/users/13603661/hex" target="_blank" title="Stack Overflow" class="main-header-link">
+			<img src="/web/static/icons/stackoverflow.png" alt="Stack Overflow" class="main-header-icon"/>
+		</a>
+		<a href="https://www.meetup.com/pl-PL/members/214136059/" target="_blank" title="Meetup" class="main-header-link">
+			<img src="/web/static/icons/meetup.png" alt="Meetup" class="main-header-icon"/>
+		</a>
+		<a href="mailto:bartosz.piotr.blaszczak@gmail.com" target="_blank" title="Email" class="main-header-link">
+			<img src="/web/static/icons/email.png" alt="Meetup" class="main-header-icon"/>
+		</a>
+		<br>
+		<br>
+	</h2>
+</header>
+<div class="main-body">
+    <br>
+    
+    <div class="post">
+        
+        <button id="1" class="post-header openable" onclick="toggle_collapse(this)" onauxclick="window.open(&#39;pl/post/1&#39;)">
+            <p>
+                <span class="post-date">05.05.2021</span>
+                <span class="post-title">tytuł</span>
+            </p>
+            <p>streszczenie</p>
+        </button>
+        <div class="post-panel">
+            <iframe src="/posts/1.html" class="post-frame" loading="lazy" onload="resize_post(this)"></iframe>
+        </div>
+    </div>
+    <br>
+</div>
+</body>
+</html>

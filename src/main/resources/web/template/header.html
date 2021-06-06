@@ -1,0 +1,42 @@
+<header class="main-header" th:fragment="header">
+	<a id="about" th:href="|/${#locale}/about|" class="main-header-link" th:text="#{page.about}"></a>
+    <div id="languages">
+        <a href="/pl" th:title="#{language.polish}" class="main-header-link">
+            <img src="/web/static/icons/flag_pl.png" th:alt="#{language.polish}" th:class="__${#locale}__=='pl'?'language-icon active':'language-icon'"/>
+        </a>
+        <a href="/en" th:title="#{language.english}" class="main-header-link">
+            <img src="/web/static/icons/flag_en.png" th:alt="#{language.english}" th:class="__${#locale}__=='en'?'language-icon active':'language-icon'"/>
+        </a>
+    </div>
+	<h1>
+		<br>
+		<a th:href="|/${#locale}|" class="main-header-link">
+			<span class="main-header-title">&lt;&nbsp;Hex.log&nbsp;&gt;</span>
+			<BR>
+			<span>Code smart</span><span class="red">!</span>
+		</a>
+	</h1>
+	<br>
+	<h2>
+		<a href="https://github.com/BartoszBlaszczak/hexlog" target="_blank" title="GitHub" class="main-header-link">
+			<img src="/web/static/icons/github.png" alt="GitHub" class="main-header-icon"/>
+		</a>
+		<a href="https://www.linkedin.com/in/bartosz-blaszczak" target="_blank" title="LinkedIn" class="main-header-link">
+			<img src="/web/static/icons/linkedin.png" alt="LinkedIn" class="main-header-icon"/>
+		</a>
+		<a href="https://nofluffjobs.com/pl/profile/BartoszBlaszczak" target="_blank" title="No Fluff Jobs" class="main-header-link">
+			<img src="/web/static/icons/nfj.png" alt="No Fluff Jobs" class="main-header-icon"/>
+		</a>
+		<a href="https://stackoverflow.com/users/13603661/hex" target="_blank" title="Stack Overflow" class="main-header-link">
+			<img src="/web/static/icons/stackoverflow.png" alt="Stack Overflow" class="main-header-icon"/>
+		</a>
+		<a href="https://www.meetup.com/pl-PL/members/214136059/" target="_blank" title="Meetup" class="main-header-link">
+			<img src="/web/static/icons/meetup.png" alt="Meetup" class="main-header-icon"/>
+		</a>
+		<a href="mailto:bartosz.piotr.blaszczak@gmail.com" target="_blank" title="Email" class="main-header-link">
+			<img src="/web/static/icons/email.png" alt="Meetup" class="main-header-icon"/>
+		</a>
+		<br>
+		<br>
+	</h2>
+</header>
