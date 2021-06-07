@@ -1,434 +1,497 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-  
-  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
-  <title>Pomysł na koniec wiosny</title>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <title>Pomysł na koniec wiosny</title>
+    <style type="text/css">
+        pre {
+            overflow: auto;
+        }
 
-  
-  
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-  
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-  
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-  
-  <link rel="stylesheet" type="text/css" href="/posts/posts.css" />
-
-</head><body>
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <base target="_blank">
+</head>
+<body>
 <p>Kilka lat temu, gdy dopiero zaczynałem przygodę z poważnym
-programowaniem w świecie Javy, nauczyłem się podstaw największego i
-najważniejszego jej frameworka – Springa. Przeczytałem Spring in
-Action, zapisałem się na kurs i oczywiście, jak każdy początkujący (i
-nie tylko) jego użytkownik, rozpalałem wyszukiwarkę Googla i
-StackOverflow do czerwoności. Sam Spring jest ogromnie
-rozbudowany i po nauce podstawy (kontenera beanów) poznawałem dalsze
-jego składowe – SpringMVC, SpringSecurity, SpringData itd. Pamiętam jak
-zarywałem noce poznając wiedzę tajemną Springa i implementując ją w
-pisanych na szybko wprawkach. Nie była to zresztą tylko przyjemność ale
-i wymóg rynku pracy - w świecie backendowej Javy właściwie nie da się
-Springa nie znać - jest praktycznie wszędzie.&nbsp;</p>
+    programowaniem w świecie Javy, nauczyłem się podstaw największego i
+    najważniejszego jej frameworka – Springa. Przeczytałem Spring in
+    Action, zapisałem się na kurs i oczywiście, jak każdy początkujący (i
+    nie tylko) jego użytkownik, rozpalałem wyszukiwarkę Googla i
+    StackOverflow do czerwoności. Sam Spring jest ogromnie
+    rozbudowany i po nauce podstawy (kontenera beanów) poznawałem dalsze
+    jego składowe – SpringMVC, SpringSecurity, SpringData itd. Pamiętam jak
+    zarywałem noce poznając wiedzę tajemną Springa i implementując ją w
+    pisanych na szybko wprawkach. Nie była to zresztą tylko przyjemność ale
+    i wymóg rynku pracy - w świecie backendowej Javy właściwie nie da się
+    Springa nie znać - jest praktycznie wszędzie.&nbsp;</p>
 
 <p>Jak wiadomo Spring powstał jako lekka, przyjemna alternatywa dla EJB
-(a
-właściwie całego JEE) które w tamtym czasie było takim potworkiem że
-ludzie przyjęli Springa z ulgą i otwartymi ramionami. I choć to JEE
-było półoficjalnym standardem to na palcach jednej ręki mogę zliczyć
-projekty o których w ogóle słyszałem, że są w nim napisane
-(przynajmniej na polskim rynku IT). I mimo że JEE stało się z czasem
-tak
-samo wygodne jak Spring – sam napisałem na pracę inżynierską <a href="https://github.com/BartoszBlaszczak/Mercury" target="_blank">taki
-projekcik</a> – to jednak Spring wygrał rząd dusz programistów. Bo
-czy
-słyszeliście o innych poważnych i powszechnie znanych rozwiązaniach IoC
-backendowej Javy?</p>
+    (a
+    właściwie całego JEE) które w tamtym czasie było takim potworkiem że
+    ludzie przyjęli Springa z ulgą i otwartymi ramionami. I choć to JEE
+    było półoficjalnym standardem to na palcach jednej ręki mogę zliczyć
+    projekty o których w ogóle słyszałem, że są w nim napisane
+    (przynajmniej na polskim rynku IT). I mimo że JEE stało się z czasem
+    tak
+    samo wygodne jak Spring – sam napisałem na pracę inżynierską <a href="https://github.com/BartoszBlaszczak/Mercury">taki
+        projekcik</a> – to jednak Spring wygrał rząd dusz programistów. Bo
+    czy
+    słyszeliście o innych poważnych i powszechnie znanych rozwiązaniach IoC
+    backendowej Javy?</p>
 
 <p>Jeszcze kilka lat temu wydawało mi się że Spring jest wspaniałym
-frameworkiem, bez którego właściwie jesteśmy skazani albo na <span style="text-decoration: line-through;">JEE</span>
-Jakartę albo jakieś inne, niszowe rozwiązania – no bo jak niby inaczej
-zrobić poważną aplikację w Javie? Jak zrobić poważne DI? Nie no – bez
-żartów –
-bez Springa się nie da… Nie?</p>
+    frameworkiem, bez którego właściwie jesteśmy skazani albo na <span style="text-decoration: line-through;">JEE</span>
+    Jakartę albo jakieś inne, niszowe rozwiązania – no bo jak niby inaczej
+    zrobić poważną aplikację w Javie? Jak zrobić poważne DI? Nie no – bez
+    żartów –
+    bez Springa się nie da… Nie?</p>
 
 <p>Hej - czyżbym właśnie napisał, że jeden z najpopularniejszych
-języków
-programowania na świecie jest praktycznie niesamodzielny? Czemu wymaga
-on czegoś więcej? I nie mam tu na myśli dodatkowych bibliotek
-dostarczających określone dodatkowe funkcje tylko sam rdzeń aplikacji,
-sam jej szkielet (<span style="font-style: italic;">frame work</span>).
-Czemu nie możemy obejść się bez Springa?
-Czy język programowania i jego biblioteka standardowa nie powinny same
-w sobie być wystarczającymi szkieletami dla aplikacji? Wydaje mi się że
-tak! Czemu zatem tak nie jest?</p>
+    języków
+    programowania na świecie jest praktycznie niesamodzielny? Czemu wymaga
+    on czegoś więcej? I nie mam tu na myśli dodatkowych bibliotek
+    dostarczających określone dodatkowe funkcje tylko sam rdzeń aplikacji,
+    sam jej szkielet (<span style="font-style: italic;">frame work</span>).
+    Czemu nie możemy obejść się bez Springa?
+    Czy język programowania i jego biblioteka standardowa nie powinny same
+    w sobie być wystarczającymi szkieletami dla aplikacji? Wydaje mi się że
+    tak! Czemu zatem tak nie jest?</p>
 
 <p>To pytanie nurtowało mnie od kilku lat wraz z rosnącą irytacją
-wynikającą z używania Springa. Coraz wyraźniej czułem, że zarówno z tym
-frameworkiem jak i całym podejściem do architektury aplikacji
-backendowej coś jest mocno nie tak. Im dłużej programowałem tym
-bardziej się w tym utwierdzałem. Ale co konkretnie mi się nie podoba?</p>
+    wynikającą z używania Springa. Coraz wyraźniej czułem, że zarówno z tym
+    frameworkiem jak i całym podejściem do architektury aplikacji
+    backendowej coś jest mocno nie tak. Im dłużej programowałem tym
+    bardziej się w tym utwierdzałem. Ale co konkretnie mi się nie podoba?</p>
 
-<p>Konkretnie to:<br />
+<p>Konkretnie to:<br/>
 </p>
 
 <ul>
-
-  <li>zbyt luźne związanie ziaren (beanów)</li>
-  <li>za duże skomplikowanie</li>
-  <li>niska wydajność</li>
-  <li>podejście magiczne - zamiast inżynierskiego</li>
-  <li>całkowite odejście od filozofii UNIXa</li>
+    
+    <li>zbyt luźne związanie ziaren (beanów)</li>
+    <li>za duże skomplikowanie</li>
+    <li>niska wydajność</li>
+    <li>podejście magiczne - zamiast inżynierskiego</li>
+    <li>całkowite odejście od filozofii UNIXa</li>
 </ul>
 
 <h2>Zbyt luźne związanie ziaren (beanów)</h2>
 
 <p>To jest cecha nie tylko Springa czy Jakarty lecz właściwie
-paradygmatu tych rozwiązań. Już kilka lat temu stwierdziłem, że z
-punktu widzenia programisty używającego tego podejścia program który
-właśnie piszemy wygląda jak rozsypanka. Zauważyliście to? Jest sobie
-jakieś ziarno a obok niego inne. Cała masa ziaren - sporo z nich sam
-napisałem. W jednym ziarnie odwołuję się do innego - a
-dokładnie do zależności o typie takim jak to inne ziarno. I choć
-klasa tego drugiego ziarna jest zaraz obok to ja – programista – nie
-widzę tego wstrzyknięcia. Nie ja to łączę tylko framework a moja
-aplikacja bez niego jest niedziałającą rozsypanką takich ziaren - jakby
-demem aplikacji. Muszę zatem wierzyć że zostanie to dobrze połączone.
-Podczas pisania czy kompilacji nie widzę tego połączenia i tak naprawdę
-nie mam pewności że dane ziarno faktycznie zostanie wstrzyknięte.
-A wielokrotnie okazywało się że jednak nie zostało - wystarczyło że
-zapominałem dodać adnotację czy zrobić JavaConfiga. Co prawda dobre IDE
-podpowiada że czegoś tu brak – sęk w tym że w większości projektów w
-których pracowałem to podpowiadanie z wielu względów nie działało
-dobrze. Normą jest że IDE podkreśla mi na czerwono pola w klasie
-dając do zrozumienia że nie widzi moich zależności jako ziaren
-Springowych – i prawie zawsze się myli bo jednak to działa. No właśnie
-- <span style="font-style: italic;">prawie</span> – nigdy nie mam
-pewności. A wstrzykując kolekcję to już w
-ogóle zostaje mi czysta wiara że będzie to działać.</p>
+    paradygmatu tych rozwiązań. Już kilka lat temu stwierdziłem, że z
+    punktu widzenia programisty używającego tego podejścia program który
+    właśnie piszemy wygląda jak rozsypanka. Zauważyliście to? Jest sobie
+    jakieś ziarno a obok niego inne. Cała masa ziaren - sporo z nich sam
+    napisałem. W jednym ziarnie odwołuję się do innego - a
+    dokładnie do zależności o typie takim jak to inne ziarno. I choć
+    klasa tego drugiego ziarna jest zaraz obok to ja – programista – nie
+    widzę tego wstrzyknięcia. Nie ja to łączę tylko framework a moja
+    aplikacja bez niego jest niedziałającą rozsypanką takich ziaren - jakby
+    demem aplikacji. Muszę zatem wierzyć że zostanie to dobrze połączone.
+    Podczas pisania czy kompilacji nie widzę tego połączenia i tak naprawdę
+    nie mam pewności że dane ziarno faktycznie zostanie wstrzyknięte.
+    A wielokrotnie okazywało się że jednak nie zostało - wystarczyło że
+    zapominałem dodać adnotację czy zrobić JavaConfiga. Co prawda dobre IDE
+    podpowiada że czegoś tu brak – sęk w tym że w większości projektów w
+    których pracowałem to podpowiadanie z wielu względów nie działało
+    dobrze. Normą jest że IDE podkreśla mi na czerwono pola w klasie
+    dając do zrozumienia że nie widzi moich zależności jako ziaren
+    Springowych – i prawie zawsze się myli bo jednak to działa. No właśnie
+    - <span style="font-style: italic;">prawie</span> – nigdy nie mam
+    pewności. A wstrzykując kolekcję to już w
+    ogóle zostaje mi czysta wiara że będzie to działać.</p>
 
 <p>Największy jednak problem jest z ziarnami samego Springa. Która
-konfiguracja i które ustawienia faktycznie są załadowane? Nigdy nie mam
-100% pewności co tam się dzieje i do czego tak właściwie służą te
-dziesiątki propertisów. Czy mogę któreś z nich usunąć? Czy coś wtedy
-nie
-zadziała? Muszę sprawdzić. A może dla pewności
-lepiej tego nie ruszać? Eh...</p>
+    konfiguracja i które ustawienia faktycznie są załadowane? Nigdy nie mam
+    100% pewności co tam się dzieje i do czego tak właściwie służą te
+    dziesiątki propertisów. Czy mogę któreś z nich usunąć? Czy coś wtedy
+    nie
+    zadziała? Muszę sprawdzić. A może dla pewności
+    lepiej tego nie ruszać? Eh...</p>
 
 <p>A zauważyliście jak w praktyce wygląda testowanie takiego kodu? Żeby
-przetestować taką klasę muszę nakarmić ją zależnościami. W przypadku
-testu jednostkowego nad wyraz często kończy się to mockozą totalną. No
-bo przecież nie będę ręcznie tworzyć całego drzewa zależności dla
-jednego testu, prawda? Mocki pozwolą mi przetestować daną klasę
-sprawdzając dokładnie jak używała ona swoich zależności i jak reagowała
-na różne dane od nich – i to jest dobre – ale z drugiej strony będą to
-testy oderwane od rzeczywistości. Przypadki testowe mogą mieć niewiele
-wspólnego z tym co ta klasa rzeczywiście robi. Nawet jeżeli chciałbym
-zamockować część zależności to najczęściej mockuję większość lub
-wszystkie. Rozwiązaniem tego problemu jest test z podniesionym
-kontekstem aplikacji. Sęk w tym
-że takie testy uruchamia się dość rzadko. Czemu? Bo są wolne. A wolne
-są
-bo stawianie kontekstu trwa długo. Ale o tym później.</p>
+    przetestować taką klasę muszę nakarmić ją zależnościami. W przypadku
+    testu jednostkowego nad wyraz często kończy się to mockozą totalną. No
+    bo przecież nie będę ręcznie tworzyć całego drzewa zależności dla
+    jednego testu, prawda? Mocki pozwolą mi przetestować daną klasę
+    sprawdzając dokładnie jak używała ona swoich zależności i jak reagowała
+    na różne dane od nich – i to jest dobre – ale z drugiej strony będą to
+    testy oderwane od rzeczywistości. Przypadki testowe mogą mieć niewiele
+    wspólnego z tym co ta klasa rzeczywiście robi. Nawet jeżeli chciałbym
+    zamockować część zależności to najczęściej mockuję większość lub
+    wszystkie. Rozwiązaniem tego problemu jest test z podniesionym
+    kontekstem aplikacji. Sęk w tym
+    że takie testy uruchamia się dość rzadko. Czemu? Bo są wolne. A wolne
+    są
+    bo stawianie kontekstu trwa długo. Ale o tym później.</p>
 
 <p>Oczywiście nie chodzi mi tutaj o krytykę odwrócenia sterowania (IoC)
-–
-to jest moim zdaniem ze wszech miar słuszne – tylko o to konkretne
-rozwiązanie. Ziarna powinny dostawać swoje zależności z zewnątrz. Marzy
-mi się jednak takie DI które nie zakryje tego pod tak dużą zasłoną
-niepewności. Takie, gdzie będę mógł łatwo to zobaczyć i zweryfikować bo
-nie będzie to ukryte głęboko w trzewiach Behemota. Innymi słowy –
-proste, czytelne, łatwo i szybko weryfikowalne, oczywiste, naoczne,
-statycznie typowane i walidowane podczas kompilacji.</p>
+    –
+    to jest moim zdaniem ze wszech miar słuszne – tylko o to konkretne
+    rozwiązanie. Ziarna powinny dostawać swoje zależności z zewnątrz. Marzy
+    mi się jednak takie DI które nie zakryje tego pod tak dużą zasłoną
+    niepewności. Takie, gdzie będę mógł łatwo to zobaczyć i zweryfikować bo
+    nie będzie to ukryte głęboko w trzewiach Behemota. Innymi słowy –
+    proste, czytelne, łatwo i szybko weryfikowalne, oczywiste, naoczne,
+    statycznie typowane i walidowane podczas kompilacji.</p>
 
 <p>No i czy DI musi być zapewniane przez dodatkowy framework? Moim
-zdaniem
-jest to tak ważna, inherentna i podstawowa kwestia że wręcz nie powinno
-tak być!<br />
+    zdaniem
+    jest to tak ważna, inherentna i podstawowa kwestia że wręcz nie powinno
+    tak być!<br/>
 </p>
 
 <h2>Za duże skomplikowanie</h2>
 
 <p>Zaglądaliście kiedyś do wnętrzności Springa? Mogę bez
-strachu o swoje oszczędności postawić piwo każdemu z moich znajomych
-kto dobrze je poznał. A właściwie to czy powinniśmy je poznawać? Czy
-nie powinno być tak, że to po prostu działa? Moim zdaniem powinno!
-Czemu więc tyle
-razy na rozmowach o pracę słyszałem pytania o szczegóły implementacyjne
-tego Behemota? Ano dlatego że im dłużej się tego używa tym bardziej się
-wie że nie jest z tym tak łatwo. <br />
+    strachu o swoje oszczędności postawić piwo każdemu z moich znajomych
+    kto dobrze je poznał. A właściwie to czy powinniśmy je poznawać? Czy
+    nie powinno być tak, że to po prostu działa? Moim zdaniem powinno!
+    Czemu więc tyle
+    razy na rozmowach o pracę słyszałem pytania o szczegóły implementacyjne
+    tego Behemota? Ano dlatego że im dłużej się tego używa tym bardziej się
+    wie że nie jest z tym tak łatwo. <br/>
 </p>
 
 <p>Spring jest bardzo skomplikowany a że stanowi rdzeń aplikacji na nim
-opartych to przenosi on to skomplikowanie na nie. W przypadku prostych
-aplikacji nie jest to tak widoczne ale oprogramowanie ma taką cechę że
-przypomina ogród i bardzo łatwo
-się rozrasta. Praktycznie przy każdej springowej aplikacji przy której
-pracowałem widziałem jakieś sztuczki, przerośnięte konfiguracje i
-niestandardowe podejścia. Najbardziej pokręcone są chyba rozwiązania
-SpringSecurity - elementu
-który powinien być właśnie najbardziej oczywisty i godny zaufania. A w
-czasach przed SpringBootem (nie tak dawnych przecież) wyglądało to
-jeszcze gorzej. Dodajmy jeszcze do tego głęboką refleksję i łamanie nią
-kodu by otrzymać spaghetti po którym można dostać ostrej niestrawności.
-<br />
+    opartych to przenosi on to skomplikowanie na nie. W przypadku prostych
+    aplikacji nie jest to tak widoczne ale oprogramowanie ma taką cechę że
+    przypomina ogród i bardzo łatwo
+    się rozrasta. Praktycznie przy każdej springowej aplikacji przy której
+    pracowałem widziałem jakieś sztuczki, przerośnięte konfiguracje i
+    niestandardowe podejścia. Najbardziej pokręcone są chyba rozwiązania
+    SpringSecurity - elementu
+    który powinien być właśnie najbardziej oczywisty i godny zaufania. A w
+    czasach przed SpringBootem (nie tak dawnych przecież) wyglądało to
+    jeszcze gorzej. Dodajmy jeszcze do tego głęboką refleksję i łamanie nią
+    kodu by otrzymać spaghetti po którym można dostać ostrej niestrawności.
+    <br/>
 </p>
 
-<p>A może kojarzycie coś takiego:<br />
+<p>A może kojarzycie coś takiego:<br/>
 </p>
 
-<div style="text-align: center;"><img style="width: 75%;" alt="Przykładowy stos wywołań Springa" src="pics/1_spring_stack_trace.png" /><br />
+<div style="text-align: center;"><img style="width: 75%;" alt="Przykładowy stos wywołań Springa"
+                                      src="pics/1_spring_stack_trace.png"/><br/>
 </div>
 
 <p>
-Jest to migawka stosu wywołań w kontrolerze <a href="https://github.com/BartoszBlaszczak/PaymentStore" target="_blank">bardzo
-prostej
-aplikacji</a>. I tak - jest to ucięte jak widać po pasku przewijania.
-Czy tylko mi się wydaje że jest tego za dużo? Gdyby
-to jeszcze dotyczyło tylko wywołań serwera ale takie coś widzę zawsze
-kiedy podglądam komunikację ziaren. Widzę to w logach
-wyjątków. Widzę to wszędzie. Czy to jest normalne?<br />
+    Jest to migawka stosu wywołań w kontrolerze <a href="https://github.com/BartoszBlaszczak/PaymentStore">bardzo
+    prostej
+    aplikacji</a>. I tak - jest to ucięte jak widać po pasku przewijania.
+    Czy tylko mi się wydaje że jest tego za dużo? Gdyby
+    to jeszcze dotyczyło tylko wywołań serwera ale takie coś widzę zawsze
+    kiedy podglądam komunikację ziaren. Widzę to w logach
+    wyjątków. Widzę to wszędzie. Czy to jest normalne?<br/>
 </p>
 
 <p style="text-align: center; font-style: italic;">Keep It Simple,
-Stupid!</p>
+    Stupid!</p>
 
 <h2>Niska wydajność</h2>
 
 <p>Z tym przekomplikowaniem wiąże się też problem kiepskiej wydajności.
-Aplikacja z przykładu wyżej jest arcyprosta. Właściwie jest to demo
-napisane pod proces rekrutacyjny do pewnej firmy (i tak - przyjęli mnie
-po tym :) ). Jest ona napisana w całkiem świeżym SpringBoot i podnosi
-się na moim laptopie (i7-7700HQ) około 2 sekundy. Niby mało ale
-aplikacja tej skali powinna wstawać wielokrotnie szybciej. Prawdziwe
-aplikacje biznesowe na Springu wstają czasami tak długo że można sobie
-nawet zaparzyć herbatę w międzyczasie ale
-przecież nie mamy lat siedemdziesiątych by tak się miało dziać.</p>
+    Aplikacja z przykładu wyżej jest arcyprosta. Właściwie jest to demo
+    napisane pod proces rekrutacyjny do pewnej firmy (i tak - przyjęli mnie
+    po tym :) ). Jest ona napisana w całkiem świeżym SpringBoot i podnosi
+    się na moim laptopie (i7-7700HQ) około 2 sekundy. Niby mało ale
+    aplikacja tej skali powinna wstawać wielokrotnie szybciej. Prawdziwe
+    aplikacje biznesowe na Springu wstają czasami tak długo że można sobie
+    nawet zaparzyć herbatę w międzyczasie ale
+    przecież nie mamy lat siedemdziesiątych by tak się miało dziać.</p>
 
 <p>Kolejnym problemem - o którym pisałem wyżej - jest to że testy
-integracyjne uruchamiają się tak długo że osobiście znam ludzi którzy
-ich nie puszczają podczas implementacji. No bo komu by się chciało
-tracić
-tyle czasu? :) A na koniec okazuje się że połowa ficzera pisanego kilka
-dni jest do przeróbki.</p>
+    integracyjne uruchamiają się tak długo że osobiście znam ludzi którzy
+    ich nie puszczają podczas implementacji. No bo komu by się chciało
+    tracić
+    tyle czasu? :) A na koniec okazuje się że połowa ficzera pisanego kilka
+    dni jest do przeróbki.</p>
 
 <p>Warto też sobie uświadomić jak absurdalnie wygląda podnoszenie
-aplikacji Springowej. W czasach przed SpringBootem wyglądało to w
-wielkim uproszczeniu tak: aplikacja Springowa deployowana jest na
-kontenerze serwletów gdzie na podstawie deskryptora wdrożenia
-(pamiętacie jeszcze takie coś?) uruchamiany zostawał springowy
-DispatcherServlet (tak, tak - pozostałość po JEE) który to podnosi
-kontekst aplikacji i zaczyna nasłuch. Na SpringBoot jest jeszcze
-ciekawiej bo zamiast deployować to na zewnętrznym kontenerze to przy
-starcie apki uruchamiany jest wbudowany w aplikację kontener (domyślnie
-Tomcat). Ileż absurdalnie niepotrzebnych warstw!</p>
+    aplikacji Springowej. W czasach przed SpringBootem wyglądało to w
+    wielkim uproszczeniu tak: aplikacja Springowa deployowana jest na
+    kontenerze serwletów gdzie na podstawie deskryptora wdrożenia
+    (pamiętacie jeszcze takie coś?) uruchamiany zostawał springowy
+    DispatcherServlet (tak, tak - pozostałość po JEE) który to podnosi
+    kontekst aplikacji i zaczyna nasłuch. Na SpringBoot jest jeszcze
+    ciekawiej bo zamiast deployować to na zewnętrznym kontenerze to przy
+    starcie apki uruchamiany jest wbudowany w aplikację kontener (domyślnie
+    Tomcat). Ileż absurdalnie niepotrzebnych warstw!</p>
 
 <p>Oprócz argumentu wygody programisty jest jeszcze jeden o którym
-będziemy myśleć kiedy przyjdzie nam płacić za hosting :)<br />
+    będziemy myśleć kiedy przyjdzie nam płacić za hosting :)<br/>
 </p>
 
 <h2>
-Podejście magiczne – zamiast inżynierskiego</h2>
+    Podejście magiczne – zamiast inżynierskiego</h2>
 
 <p>Znacie takie sformułowanie jak magia w programowaniu? Coś się dzieje
-automagicznie - czyli jakoś a my nie wiemy jak. Kiedyś mi to
-imponowało i sam chciałem zostać czarodziejem. Zmieniłem jednak zdanie
-po
-miriadach napisanych linii kodu. Magia jest fajna jak działa ale jak
-coś
-przestaje działać to nagle się okazuje że mam ochotę takich
-czarodziejów spalić na stosie. Oczywiście nie mam tu na myśli używania
-abstrakcji, bibliotek czy wydzielania odpowiedzialności. To są właśnie
-te rzeczy których inżynierowie powinni używać. Jednak Spring i jemu
-podobne narzędzia robią to źle. Programowanie deklaratywne połączone z
-łamaniem kodu głęboką refleksją oraz springową rozsypanką, gdzie nigdy
-nie mam pewności czy coś zadziała, sprawia że zamiast
-programować z przyjemnością i skupić się na logice biznesowej to raczej
-czuję się jak inżynier przy szamanie - sam nie
-wiem czy powinienem patrzeć na niego z podziwem czy z zażenowaniem
-(choć z biegiem czasu coraz częściej patrzę w ten drugi sposób). Czekam
-już tylko na aplikacje które będą pisane tylko jako springowe
-konfiguracje w yamlu.</p>
+    automagicznie - czyli jakoś a my nie wiemy jak. Kiedyś mi to
+    imponowało i sam chciałem zostać czarodziejem. Zmieniłem jednak zdanie
+    po
+    miriadach napisanych linii kodu. Magia jest fajna jak działa ale jak
+    coś
+    przestaje działać to nagle się okazuje że mam ochotę takich
+    czarodziejów spalić na stosie. Oczywiście nie mam tu na myśli używania
+    abstrakcji, bibliotek czy wydzielania odpowiedzialności. To są właśnie
+    te rzeczy których inżynierowie powinni używać. Jednak Spring i jemu
+    podobne narzędzia robią to źle. Programowanie deklaratywne połączone z
+    łamaniem kodu głęboką refleksją oraz springową rozsypanką, gdzie nigdy
+    nie mam pewności czy coś zadziała, sprawia że zamiast
+    programować z przyjemnością i skupić się na logice biznesowej to raczej
+    czuję się jak inżynier przy szamanie - sam nie
+    wiem czy powinienem patrzeć na niego z podziwem czy z zażenowaniem
+    (choć z biegiem czasu coraz częściej patrzę w ten drugi sposób). Czekam
+    już tylko na aplikacje które będą pisane tylko jako springowe
+    konfiguracje w yamlu.</p>
 
 <p style="text-align: center;">Czyż nie tęsknicie za czasami, gdy
-programiści byli programistami i sami pisali swoje aplikacje?</p>
+    programiści byli programistami i sami pisali swoje aplikacje?</p>
 
 <h2>Całkowite odejście od filozofii UNIXa</h2>
 
 <p>Na koniec jeszcze jedna refleksja. Pamiętacie jeszcze filozofię
-UNIXa? Ja wiem że często się już tego nie stosuje, że jest sporo
-dobrego softu który zdecydowanie nie jest mały i jednozadaniowy i że
-tak
-jak we wszystkim w życiu trzeba znaleźć złoty, wygodny środek.
-Filozofia Springa jednak to już przegięcie. Bardziej niż powiew wiosny
-przypomina on już gradobicie. "Skoro mamy już Springa to użyjmy jeszcze
-SpringXxx - dostajemy to przecież prawie za darmo no i chyba jest
-spoko, nie?" Czy czegoś Wam to nie przypomina?</p>
+    UNIXa? Ja wiem że często się już tego nie stosuje, że jest sporo
+    dobrego softu który zdecydowanie nie jest mały i jednozadaniowy i że
+    tak
+    jak we wszystkim w życiu trzeba znaleźć złoty, wygodny środek.
+    Filozofia Springa jednak to już przegięcie. Bardziej niż powiew wiosny
+    przypomina on już gradobicie. "Skoro mamy już Springa to użyjmy jeszcze
+    SpringXxx - dostajemy to przecież prawie za darmo no i chyba jest
+    spoko, nie?" Czy czegoś Wam to nie przypomina?</p>
 
 <p style="text-align: center; font-style: italic;">Jeden, by wszystkimi
-rządzić, jeden, by
-wszystkie odnaleźć,<br />
-Jeden, by wszystkie zgromadzić i w ciemności związać.</p>
+    rządzić, jeden, by
+    wszystkie odnaleźć,<br/>
+    Jeden, by wszystkie zgromadzić i w ciemności związać.</p>
 
 <h2>Jaka alternatywa?</h2>
 
 <p>Kilka lat temu zacząłem się zastanawiać jak można ominąć
-te problemy. Szukałem sensownej alternatywy która nie powieliłaby tych
-minusów a jednocześnie dawałaby wygodę tworzenia wydajnych,
-skalowalnych, testowalnych i rozwijalnych aplikacji.
-Pamiętam jak trzy lata temu będąc na Confiturze zobaczyłem <a href="https://youtu.be/u9fPhXjfv2E" target="_blank">to
-wystąpienie</a> na temat alternatyw dla Springa. Pamiętam też, że
-zrobiło to
-na mnie bardzo słabe wrażenie - zamiast pokazać jakieś ciekawe i
-sensowne alternatywy utwierdziło mnie w przekonaniu, że takie
-praktycznie nie istnieją. Jednak kilka miesięcy później zobaczyłem
-<a href="https://youtu.be/IURFpwtOYqU" target="_blank">wystąpienie</a>
-Jarosława Ratajskiego które doskonale wpasowało się w moje
-przemyślenia i utwierdziło mnie w przekonaniu że sam język ma wszystko
-to czego mi potrzeba. W wystąpieniu tym nie znalazłem niestety
-konkretnych propozycji. Spróbowałem więc
-samemu napisać bardzo prosty framework DI oparty na mirokontenerze.
-Rozwiązywał on wiele omówionych wyżej problemów ale wciąż było to
-rozwiązanie mało doskonałe. Zacząłem więc zastanawiać się jak bez
-żadnego frameworka zrobić dobre DI tak, by nie było to karkołomne.
-Wyznaczyłem sobie kilka
-założeń. Ma to być:<br />
+    te problemy. Szukałem sensownej alternatywy która nie powieliłaby tych
+    minusów a jednocześnie dawałaby wygodę tworzenia wydajnych,
+    skalowalnych, testowalnych i rozwijalnych aplikacji.
+    Pamiętam jak trzy lata temu będąc na Confiturze zobaczyłem <a href="https://youtu.be/u9fPhXjfv2E">to
+        wystąpienie</a> na temat alternatyw dla Springa. Pamiętam też, że
+    zrobiło to
+    na mnie bardzo słabe wrażenie - zamiast pokazać jakieś ciekawe i
+    sensowne alternatywy utwierdziło mnie w przekonaniu, że takie
+    praktycznie nie istnieją. Jednak kilka miesięcy później zobaczyłem
+    <a href="https://youtu.be/IURFpwtOYqU">wystąpienie</a>
+    Jarosława Ratajskiego które doskonale wpasowało się w moje
+    przemyślenia i utwierdziło mnie w przekonaniu że sam język ma wszystko
+    to czego mi potrzeba. W wystąpieniu tym nie znalazłem niestety
+    konkretnych propozycji. Spróbowałem więc
+    samemu napisać bardzo prosty framework DI oparty na mirokontenerze.
+    Rozwiązywał on wiele omówionych wyżej problemów ale wciąż było to
+    rozwiązanie mało doskonałe. Zacząłem więc zastanawiać się jak bez
+    żadnego frameworka zrobić dobre DI tak, by nie było to karkołomne.
+    Wyznaczyłem sobie kilka
+    założeń. Ma to być:<br/>
 </p>
 
 <ul>
-
-  <li>proste a najlepiej banalnie proste </li>
-  <li>wygodne </li>
-  <li>niezawodne </li>
-  <li>testowalne </li>
-  <li>skalowalne </li>
-  <li>wydajne </li>
-  <li>pewne </li>
-  <li>statycznie typowane </li>
-  <li>oczywiste i bez magii</li>
+    <li>proste a najlepiej banalnie proste</li>
+    <li>wygodne</li>
+    <li>niezawodne</li>
+    <li>testowalne</li>
+    <li>skalowalne</li>
+    <li>wydajne</li>
+    <li>pewne</li>
+    <li>statycznie typowane</li>
+    <li>oczywiste i bez magii</li>
 </ul>
 
 <p>Około półtora roku temu wpadłem na pomysł jak to zrobić. Nadejście
-zarazy koronawirusa w 2020
-roku i związane z tym obostrzenia dały mi czas i impuls by spróbować
-napisać jakąś aplikację opartą na tym pomyśle.</p>
+    zarazy koronawirusa w 2020
+    roku i związane z tym obostrzenia dały mi czas i impuls by spróbować
+    napisać jakąś aplikację opartą na tym pomyśle.</p>
 
 <p>W tym też czasie poznałem i zakochałem się w nowym języku -
-Kotlinie. Jest tym czego potrzebuję od języka i tym czym
-Scala powinna być od początku a nigdy się nie stała. Od tego czasu
-piszę prywatnie na JVM już tylko w Kotlinie - i próbuję swoich sił w
-Kotlinie poza JVM. Język ten i cały jego ekosystem przynosi wiele
-ciekawych roziązań. Sprawia też że coś, co w Javie byłoby karkołomne i
-niewygodne, w nim jest jak najbardziej wygodne, eleganckie i proste.
-Pozwala mi skupić się na meritum zamiast bohatersko zmagać się z
-rzeczami, którymi w ogóle nie powinienem się zajmować. Wspomniany
-pomysł
-na rozwiązanie jest oparty właśnie na Kotlinie i dzięki temu językowi
-możliwe jest spełnienie założeń prostoty i wygody.</p>
+    Kotlinie. Jest tym czego potrzebuję od języka i tym czym
+    Scala powinna być od początku a nigdy się nie stała. Od tego czasu
+    piszę prywatnie na JVM już tylko w Kotlinie - i próbuję swoich sił w
+    Kotlinie poza JVM. Język ten i cały jego ekosystem przynosi wiele
+    ciekawych roziązań. Sprawia też że coś, co w Javie byłoby karkołomne i
+    niewygodne, w nim jest jak najbardziej wygodne, eleganckie i proste.
+    Pozwala mi skupić się na meritum zamiast bohatersko zmagać się z
+    rzeczami, którymi w ogóle nie powinienem się zajmować. Wspomniany
+    pomysł
+    na rozwiązanie jest oparty właśnie na Kotlinie i dzięki temu językowi
+    możliwe jest spełnienie założeń prostoty i wygody.</p>
 
 <p>Rozwiązanie na które wpadłem jest wręcz banalnie proste lecz wydaje
-mi
-się że spełnia powyższe założenia. Opiera się ono na kotlinowych
-<span style="font-style: italic;">objectach</span> oraz swoistym wzorcu
-projektowym który można nazwać <span style="font-style: italic;">Lazy
+    mi
+    się że spełnia powyższe założenia. Opiera się ono na kotlinowych
+    <span style="font-style: italic;">objectach</span> oraz swoistym wzorcu
+    projektowym który można nazwać <span style="font-style: italic;">Lazy
 Properties Application Context</span>.</p>
 
 <h3>Singletony</h3>
 
 <p>Znacie zapewne wzorzec projektowy Singleton - wszyscy programiści
-się go uczą a prawie nikt nie wykorzystuje. Nie oznacza to jednak że
-nie potrzebujemy
-klas z jedną tylko instancją, dostajemy to jednak od frameworka, który
-to on dba o ich tworzenie. Od kilku lat czułem że coś tu jest nie tak.
-Instancje takie są często niemożliwe do stworzenia bez głębokiej
-refleksji albo są to <span style="font-style: italic;">zwykłe klasy
-tworzone
-konstruktorem. W tym pierwszym przypadku jeszcze bardziej uzależniamy
-się od frameworka a w drugim całkowicie odchodzimy od wzorca Singleton.
-Rozwiązaniem idealnym byłoby gdyby sam język wspierał ten wzorzec i jak
-się okazuje dokładnie tym są kotlinowe objecty. Postanowiłem użyć ich
-jako podstawy dla ziaren aplikacji. <br />
+    się go uczą a prawie nikt nie wykorzystuje. Nie oznacza to jednak że
+    nie potrzebujemy
+    klas z jedną tylko instancją, dostajemy to jednak od frameworka, który
+    to on dba o ich tworzenie. Od kilku lat czułem że coś tu jest nie tak.
+    Instancje takie są często niemożliwe do stworzenia bez głębokiej
+    refleksji albo są to zwykłe klasy
+    tworzone
+    konstruktorem. W tym pierwszym przypadku jeszcze bardziej uzależniamy
+    się od frameworka a w drugim całkowicie odchodzimy od wzorca Singleton.
+    Rozwiązaniem idealnym byłoby gdyby sam język wspierał ten wzorzec i jak
+    się okazuje dokładnie tym są kotlinowe objecty. Postanowiłem użyć ich
+    jako podstawy dla ziaren aplikacji. <span style="font-style: italic;"><br/>
 </span></p>
 
 <h3>Kontekst</h3>
 
 <p>Nie zawsze jednak chcemy odnosić się do danego ziarna
-bezpośrednio lecz potrzebujemy schować go za interfejsem. W
-architekturze portów i adapterów domena w ogóle nie powinna znać
-konkretnej implementacji adaptera. Tutaj z pomocą przychodzi kontekst
-aplikacji. Kontekst oparty na kontenerze jest jednak tym czego właśnie
-chciałem uniknąć. Rozwiązanie nasunęło się więc samo - potrzebuję po
-prostu
-klasy kontekstowej gdzie ziarna będą jej polami (w świecie kotlinowym
-mówi się o <span style="font-style: italic;">properties</span>).
-Singletony mogą pobierać swoje zależności z takiego właśnie źródła
-zamiast konstruktora. Rozwiązanie wręcz banalne. Żeby nie było
-problemów z ładowaniem
-ziaren i ich sekwencją zrobiłem je leniwymi - z użyciem kotlinowego
-<span style="font-style: italic;">lazy</span>. Dodałem do tego bardzo
-prostą implementację profili i tyle! Ale
-gadanie jest tanie. Kod wygląda tak:</p>
+    bezpośrednio lecz potrzebujemy schować go za interfejsem. W
+    architekturze portów i adapterów domena w ogóle nie powinna znać
+    konkretnej implementacji adaptera. Tutaj z pomocą przychodzi kontekst
+    aplikacji. Kontekst oparty na kontenerze jest jednak tym czego właśnie
+    chciałem uniknąć. Rozwiązanie nasunęło się więc samo - potrzebuję po
+    prostu
+    klasy kontekstowej gdzie ziarna będą jej polami (w świecie kotlinowym
+    mówi się o <span style="font-style: italic;">properties</span>).
+    Singletony mogą pobierać swoje zależności z takiego właśnie źródła
+    zamiast konstruktora. Rozwiązanie wręcz banalne. Żeby nie było
+    problemów z ładowaniem
+    ziaren i ich sekwencją zrobiłem je leniwymi - z użyciem kotlinowego
+    <span style="font-style: italic;">lazy</span>. Dodałem do tego bardzo
+    prostą implementację profili i tyle! Ale
+    gadanie jest tanie. Kod wygląda tak:</p>
 
 <p>
 </p>
 
-<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span style="color: rgb(204, 120, 50);">open class </span>AppContext(args: Array<span style="color: rgb(255, 254, 0);">&lt;</span>String<span style="color: rgb(255, 254, 0);">&gt;</span>) <span style="color: rgb(255, 254, 0);">{<br /></span><span style="color: rgb(255, 254, 0);">    </span><span style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">properties </span><span style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>AppProperties(args) <span style="color: rgb(255, 120, 32); font-weight: bold;">}<br /></span><span style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span style="color: rgb(204, 120, 50);">private val </span><span style="color: rgb(152, 118, 170);">profiles </span><span style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span><span style="font-style: italic;">listOf</span>(DemoProfile).<span style="color: rgb(255, 198, 109); font-style: italic;">filter </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span><span style="color: rgb(152, 118, 170);">properties</span>.<span style="color: rgb(152, 118, 170);">value</span>.<span style="color: rgb(152, 118, 170);">profiles</span>.contains(<span style="font-weight: bold;">it</span>.<span style="color: rgb(152, 118, 170);">name</span>) <span style="color: rgb(255, 120, 32); font-weight: bold;">} }<br /></span><span style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span style="color: rgb(204, 120, 50);">private fun </span><span style="color: rgb(255, 254, 0);">&lt;</span><span style="color: rgb(32, 153, 157);">T</span><span style="color: rgb(255, 254, 0);">&gt; </span><span style="color: rgb(255, 198, 109);">from</span>(supplier: (Profile) -&gt; <span style="color: rgb(32, 153, 157);">T</span>?): <span style="color: rgb(32, 153, 157);">T</span>? <span style="color: rgb(255, 254, 0);">= </span><span style="color: rgb(152, 118, 170);">profiles</span>.<span style="color: rgb(152, 118, 170);">value</span>.<span style="color: rgb(255, 198, 109); font-style: italic;">firstNotNullOfOrNull</span>(supplier::invoke)<br />    <br />    <span style="color: rgb(204, 120, 50);">open val </span><span style="color: rgb(152, 118, 170);">postsRepository </span><span style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>from(Profile::<span style="color: rgb(152, 118, 170);">postsRepository</span>) ?: DatabasePostsRepository <span style="color: rgb(255, 120, 32); font-weight: bold;">}<br /></span><span style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span style="color: rgb(204, 120, 50);">open val </span><span style="color: rgb(152, 118, 170);">databaseConnection </span><span style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>DriverManager.getConnection(<span style="color: rgb(152, 118, 170);">properties</span>.<span style="color: rgb(152, 118, 170);">value</span>.<span style="color: rgb(152, 118, 170);">dbURL</span>) <span style="color: rgb(255, 120, 32); font-weight: bold;">}<br /></span><span style="color: rgb(255, 254, 0);">}<br /></span><span style="color: rgb(255, 254, 0);"><br /></span><span style="color: rgb(204, 120, 50);">private interface </span>Profile <span style="color: rgb(255, 254, 0);">{<br /></span><span style="color: rgb(255, 254, 0);">    </span><span style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">name</span>: String<br />    <span style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">postsRepository</span>: PostsRepository? <span style="color: rgb(204, 120, 50);">get</span>() <span style="color: rgb(255, 254, 0);">= </span><span style="color: rgb(204, 120, 50);">null<br /></span><span style="color: rgb(255, 254, 0);">}<br /></span><span style="color: rgb(255, 254, 0);"><br /></span><span style="color: rgb(204, 120, 50);">private object </span>DemoProfile : Profile <span style="color: rgb(255, 254, 0);">{<br /></span><span style="color: rgb(255, 254, 0);">    </span><span style="color: rgb(204, 120, 50);">override val </span><span style="color: rgb(152, 118, 170);">name </span><span style="color: rgb(255, 254, 0);">= </span><span style="color: rgb(106, 135, 89);">"demo"<br /></span><span style="color: rgb(106, 135, 89);">    </span><span style="color: rgb(204, 120, 50);">override val </span><span style="color: rgb(152, 118, 170);">postsRepository</span>: PostsRepository <span style="color: rgb(255, 254, 0);">= </span>DemoPostsRepository<br /><span style="color: rgb(255, 254, 0);">}</span></pre>
+<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span
+        style="color: rgb(204, 120, 50);">open class </span>AppContext(args: Array<span
+        style="color: rgb(255, 254, 0);">&lt;</span>String<span style="color: rgb(255, 254, 0);">&gt;</span>) <span
+        style="color: rgb(255, 254, 0);">{<br/></span><span style="color: rgb(255, 254, 0);">    </span><span
+        style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">properties </span><span
+        style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span
+        style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>AppProperties(args) <span
+        style="color: rgb(255, 120, 32); font-weight: bold;">}<br/></span><span
+        style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span style="color: rgb(204, 120, 50);">private val </span><span
+        style="color: rgb(152, 118, 170);">profiles </span><span style="color: rgb(255, 254, 0);">= </span><span
+        style="font-style: italic;">lazy </span><span
+        style="color: rgb(255, 120, 32); font-weight: bold;">{ </span><span style="font-style: italic;">listOf</span>(DemoProfile).<span
+        style="color: rgb(255, 198, 109); font-style: italic;">filter </span><span
+        style="color: rgb(255, 120, 32); font-weight: bold;">{ </span><span style="color: rgb(152, 118, 170);">properties</span>.<span
+        style="color: rgb(152, 118, 170);">value</span>.<span style="color: rgb(152, 118, 170);">profiles</span>.contains(<span
+        style="font-weight: bold;">it</span>.<span style="color: rgb(152, 118, 170);">name</span>) <span
+        style="color: rgb(255, 120, 32); font-weight: bold;">} }<br/></span><span
+        style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span style="color: rgb(204, 120, 50);">private fun </span><span
+        style="color: rgb(255, 254, 0);">&lt;</span><span style="color: rgb(32, 153, 157);">T</span><span
+        style="color: rgb(255, 254, 0);">&gt; </span><span style="color: rgb(255, 198, 109);">from</span>(supplier: (Profile) -&gt; <span
+        style="color: rgb(32, 153, 157);">T</span>?): <span style="color: rgb(32, 153, 157);">T</span>? <span
+        style="color: rgb(255, 254, 0);">= </span><span style="color: rgb(152, 118, 170);">profiles</span>.<span
+        style="color: rgb(152, 118, 170);">value</span>.<span style="color: rgb(255, 198, 109); font-style: italic;">firstNotNullOfOrNull</span>(supplier::invoke)<br/>    <br/>    <span
+        style="color: rgb(204, 120, 50);">open val </span><span
+        style="color: rgb(152, 118, 170);">postsRepository </span><span style="color: rgb(255, 254, 0);">= </span><span
+        style="font-style: italic;">lazy </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>from(Profile::<span
+        style="color: rgb(152, 118, 170);">postsRepository</span>) ?: DatabasePostsRepository <span
+        style="color: rgb(255, 120, 32); font-weight: bold;">}<br/></span><span
+        style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span
+        style="color: rgb(204, 120, 50);">open val </span><span
+        style="color: rgb(152, 118, 170);">databaseConnection </span><span
+        style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span
+        style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>DriverManager.getConnection(<span
+        style="color: rgb(152, 118, 170);">properties</span>.<span style="color: rgb(152, 118, 170);">value</span>.<span
+        style="color: rgb(152, 118, 170);">dbURL</span>) <span
+        style="color: rgb(255, 120, 32); font-weight: bold;">}<br/></span><span style="color: rgb(255, 254, 0);">}<br/></span><span
+        style="color: rgb(255, 254, 0);"><br/></span><span style="color: rgb(204, 120, 50);">private interface </span>Profile <span
+        style="color: rgb(255, 254, 0);">{<br/></span><span style="color: rgb(255, 254, 0);">    </span><span
+        style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">name</span>: String<br/>    <span
+        style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">postsRepository</span>: PostsRepository? <span
+        style="color: rgb(204, 120, 50);">get</span>() <span style="color: rgb(255, 254, 0);">= </span><span
+        style="color: rgb(204, 120, 50);">null<br/></span><span style="color: rgb(255, 254, 0);">}<br/></span><span
+        style="color: rgb(255, 254, 0);"><br/></span><span style="color: rgb(204, 120, 50);">private object </span>DemoProfile : Profile <span
+        style="color: rgb(255, 254, 0);">{<br/></span><span style="color: rgb(255, 254, 0);">    </span><span
+        style="color: rgb(204, 120, 50);">override val </span><span style="color: rgb(152, 118, 170);">name </span><span
+        style="color: rgb(255, 254, 0);">= </span><span style="color: rgb(106, 135, 89);">"demo"<br/></span><span
+        style="color: rgb(106, 135, 89);">    </span><span style="color: rgb(204, 120, 50);">override val </span><span
+        style="color: rgb(152, 118, 170);">postsRepository</span>: PostsRepository <span
+        style="color: rgb(255, 254, 0);">= </span>DemoPostsRepository<br/><span
+        style="color: rgb(255, 254, 0);">}</span></pre>
 
 <p>Ledwie kilkanaście linii kodu. Każde ziarno w
-kontekście to jedna linijka kodu - tyle samo ile adnotacja @Component
-czy wpis w JavaConfig. Ziarna mogą być zależne od profilu bądź nie.
-Dodatkowo do testów można przygotować osobny kontekst:</p>
+    kontekście to jedna linijka kodu - tyle samo ile adnotacja @Component
+    czy wpis w JavaConfig. Ziarna mogą być zależne od profilu bądź nie.
+    Dodatkowo do testów można przygotować osobny kontekst:</p>
 
 <p>
 </p>
 
-<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span style="color: rgb(204, 120, 50);">object </span>TestContext : AppContext(<span style="font-style: italic;">arrayOf</span>()) <span style="color: rgb(255, 254, 0);">{<br /></span><span style="color: rgb(255, 254, 0);">   </span><span style="color: rgb(204, 120, 50);">override val </span><span style="color: rgb(152, 118, 170);">databaseConnection </span><span style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy</span><span style="color: rgb(255, 254, 0);">&lt;</span>Connection<span style="color: rgb(255, 254, 0);">&gt; </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>DriverManager.getConnection(<span style="color: rgb(106, 135, 89);">"jdbc:sqlite::memory:"</span>) <span style="color: rgb(255, 120, 32); font-weight: bold;">}<br /></span><span style="color: rgb(255, 254, 0);">}</span></pre>
+<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span
+        style="color: rgb(204, 120, 50);">object </span>TestContext : AppContext(<span style="font-style: italic;">arrayOf</span>()) <span
+        style="color: rgb(255, 254, 0);">{<br/></span><span style="color: rgb(255, 254, 0);">   </span><span
+        style="color: rgb(204, 120, 50);">override val </span><span style="color: rgb(152, 118, 170);">databaseConnection </span><span
+        style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy</span><span
+        style="color: rgb(255, 254, 0);">&lt;</span>Connection<span style="color: rgb(255, 254, 0);">&gt; </span><span
+        style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>DriverManager.getConnection(<span
+        style="color: rgb(106, 135, 89);">"jdbc:sqlite::memory:"</span>) <span
+        style="color: rgb(255, 120, 32); font-weight: bold;">}<br/></span><span
+        style="color: rgb(255, 254, 0);">}</span></pre>
 
 <p>A tak wygląda ładowanie ziaren z kontekstu:</p>
 
 <p>
 </p>
 
-<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span style="color: rgb(204, 120, 50);">object </span>Controller <span style="color: rgb(255, 254, 0);">{<br /></span><span style="color: rgb(255, 254, 0);">   </span><span style="color: rgb(204, 120, 50);">private val </span><span style="color: rgb(152, 118, 170);">repository </span><span style="color: rgb(204, 120, 50);">by </span><span style="color: rgb(152, 118, 170); font-style: italic;">appContext</span>.<span style="color: rgb(152, 118, 170);">postsRepository</span></pre>
+<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span
+        style="color: rgb(204, 120, 50);">object </span>Controller <span
+        style="color: rgb(255, 254, 0);">{<br/></span><span style="color: rgb(255, 254, 0);">   </span><span
+        style="color: rgb(204, 120, 50);">private val </span><span style="color: rgb(152, 118, 170);">repository </span><span
+        style="color: rgb(204, 120, 50);">by </span><span style="color: rgb(152, 118, 170); font-style: italic;">appContext</span>.<span
+        style="color: rgb(152, 118, 170);">postsRepository</span></pre>
 
 <p>I jest to walidowane podczas kompilacji (oczywiście IDE bez problemu
-wszystko podpowiada podczas pisania) i statycznie typowane. Podlega też
-pod kotlinowe <span style="font-style: italic;">null safety</span>.<br />
-Zastanawiałem się też czy wszystkie ziarna (objecty) powinny być w
-kontekście ale stwierdziłem że dam tam tylko te, które rzeczywiście są
-zależne od kontekstu uruchomieniowego, są adapterami (w architekturze
-portów i adapterów) oraz te które chciałbym mockować w testach. Cała
-reszta może być zwykłymi <span style="font-style: italic;">objectami</span>
-wywoływanymi bezpośrednio.</p>
+    wszystko podpowiada podczas pisania) i statycznie typowane. Podlega też
+    pod kotlinowe <span style="font-style: italic;">null safety</span>.<br/>
+    Zastanawiałem się też czy wszystkie ziarna (objecty) powinny być w
+    kontekście ale stwierdziłem że dam tam tylko te, które rzeczywiście są
+    zależne od kontekstu uruchomieniowego, są adapterami (w architekturze
+    portów i adapterów) oraz te które chciałbym mockować w testach. Cała
+    reszta może być zwykłymi <span style="font-style: italic;">objectami</span>
+    wywoływanymi bezpośrednio.</p>
 
 <p>Rozwiązanie to załatwia nam kwestię odwrócenia zależności bez użycia
-kontenera. A co z funkcjonalnościami które daje nam Spring? Tutaj
-stwierdziłem że powinniśmy zastosować zasadę UNIXa. Na rynku jest ogrom
-rozwiązań do każdego zapotrzebowania a ich analizą i oceną będę się
-zajmować (między innymi) na tym blogu. <br />
+    kontenera. A co z funkcjonalnościami które daje nam Spring? Tutaj
+    stwierdziłem że powinniśmy zastosować zasadę UNIXa. Na rynku jest ogrom
+    rozwiązań do każdego zapotrzebowania a ich analizą i oceną będę się
+    zajmować (między innymi) na tym blogu. <br/>
 </p>
 
 <h2>
-Czy to w ogóle działa?</h2>
+    Czy to w ogóle działa?</h2>
 
 <p>No właśnie. Ciekaw byłem jak takie rozwiązanie wypadnie w praktyce
-dlatego postanowiłem to połączyć z moim planem stworzenia tego bloga i
-napisałem go jako aplikację opartą na tym właśnie pomyśle. Okazało się
-że działa to bez problemu i spełnia, moim zdaniem,
-wszystkie założenia. Uruchamia się ona błyskawicznie i działa bez
-zarzutu. Jako serwera użyłem tam <a href="https://ktor.io" target="_blank">Ktora</a> - najpopularniejszego serwera w świecie
-Kotlina. Miałem wobec niego
-pewne obawy - jest bowiem już właściwie frameworkiem. Na szczęście
-ogranicza się do serwowania i nie wpływa na całość aplikacji; jest
-dobrze konfigurowalny i ma świetną dokumentację. <br />
-</p>
-<p>Całość opublikowana
-jest na GitHubie <a href="https://github.com/BartoszBlaszczak/hexlog" target="_blank">tutaj</a>.
-Aplikacja ta jest bardzo prosta i będzie się rozwijać razem z tym
-blogiem co stanie się najlepszym dla niej sprawdzianem. <br />
-</p>
-<p>Przejrzyjcie
-kod i dajcie mi znać co o tym sądzicie :)<br />
+    dlatego postanowiłem to połączyć z moim planem stworzenia tego bloga i
+    napisałem go jako aplikację opartą na tym właśnie pomyśle. Okazało się
+    że działa to bez problemu i spełnia, moim zdaniem,
+    wszystkie założenia. Uruchamia się ona błyskawicznie i działa bez
+    zarzutu. Jako serwera użyłem tam <a href="https://ktor.io">Ktora</a> - najpopularniejszego serwera w świecie
+    Kotlina. Miałem wobec niego
+    pewne obawy - jest bowiem już właściwie frameworkiem. Na szczęście
+    ogranicza się do serwowania i nie wpływa na całość aplikacji; jest
+    dobrze konfigurowalny i ma świetną dokumentację. <br/>
 </p>
 
-</body></html>
+<p>Całość opublikowana
+    jest na GitHubie <a href="https://github.com/BartoszBlaszczak/hexlog">tutaj</a>.
+    Aplikacja ta jest bardzo prosta i będzie się rozwijać razem z tym
+    blogiem co stanie się najlepszym dla niej sprawdzianem. <br/>
+</p>
+
+<p>Przejrzyjcie
+    kod i dajcie mi znać co o tym sądzicie :)<br/>
+</p>
+
+</body>
+</html>
