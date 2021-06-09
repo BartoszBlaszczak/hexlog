@@ -1,8 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
-    <title>Spring's end idea</title>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" /><title>Spring's end idea</title>
+    
     <style type="text/css">
         pre {
             overflow: auto;
@@ -12,9 +13,7 @@
             text-decoration: none;
         }
     </style>
-    <base target="_blank">
-</head>
-<body>
+    <base target="_blank" /></head><body>
 <p>A few years ago, when I was just starting my adventure with serious
     programming in the Java world, I learned the basics of its largest and
     most important framework - Spring. I read Spring in Action, signed up
@@ -24,8 +23,8 @@
     components - SpringMVC, SpringSecurity, SpringData, etc. I remember how
     I spent my nights getting to know Spring's secret knowledge and
     implementing it in quick exercises. It was not only a pleasure but also
-    a requirement of the job market - in Java's backend world Java Spring
-    is almost everywhere.<br/>
+    a requirement of the job market - in Java's backend world Spring
+    is almost everywhere.<br />
 </p>
 
 <p>As you know, Spring was created as a light, pleasant alternative to
@@ -49,16 +48,16 @@
     something more? And I do not mean additional libraries that provide
     specific additional functions but the core of the application, the
     frame-work itself. Why can't we programming without Spring? Shouldn't a
-    programming language and its standard library be sufficient scaffolds
+    programming language with its standard library be sufficient scaffolds
     for an application? I guess so! So why it isn't'?</p>
 
 <p>This question has bothered me for several years, along with the
     growing irritation for using Spring. I felt more and more clearly that
-    something was wrong with both this framework and the whole approach to
+    something is wrong with both this framework and the whole approach to
     backend application architecture. The longer I programmed, the more I
     became convinced with it. But what exactly do I not like?</p>
 
-<p>Well, exactly I do not like:<br/>
+<p>Well, exactly I do not like:<br />
 </p>
 
 <ul>
@@ -73,30 +72,29 @@
 <h2>Binding beans too loosely</h2>
 
 <p>This is a trait not only of Spring or Jakarta, but actually of the
-    paradigm of these solutions. A few years ago I noticed out that from
-    the programmer's point of view such a program looks like a set of
-    unlinked elements. Do you notice it too? There is a bean and another
-    one by it. A whole lot of beans. One bean refer to another - or more
-    precisely to a dependency with another bean's type. Although the class
-    of the second bean is right next to it, the programmer don't see its
-    injection. He don't connect it, but the framework, and thus application
-    without this framework is a set of unlinked beans - like a demo. I have
-    to believe that it will be well combined. I cannot see this connection
-    during writing and I am not really sure that a bean will actually be
-    injected. Many times it turned out that it was not - it was enough that
-    I forgot to add an annotation or make a JavaConfig. It is true that a
-    good IDE suggests that something is missing - the problem is that
-    prompting often do not work well. The norm is that the IDE highlights
-    the fields in the class in red to indicate that it does not see this
-    dependencies as Spring's beans - and is almost always wrong because it
-    works. Almost - I can never be sure and injecting the collection I am
+paradigm of these solutions. A few years ago I noticed that from the
+programmer's point of view such a program looks like a set of unlinked
+elements. Do you notice it too? There is a bean and another one by it.
+A whole lot of beans. One bean refer to another - or more precisely to
+a dependency with another bean's type. Although the class of the second
+bean is right next to it, the programmer don't see its injection. He
+don't connect it, but the framework, and thus application without this
+framework is a set of unlinked beans - like a demo. I have to believe
+that it will be well combined. I cannot see this connection while
+writing and I am not really sure that a bean will actually be injected.
+Many times it turned out that it was not - it was enough that I forgot
+to add an annotation or make a JavaConfig. It is true that a good IDE
+suggests that something is missing - the problem is that prompting
+often do not work well. The norm is that the IDE highlights the fields
+in the class in red to indicate that it does not see this dependencies
+as Spring's beans - and is almost always wrong because it works. <span style="font-style: italic;">Almost</span> - I can never be sure and injecting the collection I am
     left with pure faith that it will works.&nbsp;</p>
 
 <p>The biggest problem, however, is with the Spring's own beans. Which
     configuration and which settings are actually loaded? I am never 100%
     sure what is going on and what these dozens of propertises are actually
     for. Can I remove any of them? Will something not work then? I need to
-    check. Or maybe it's better not to touch it to be sure? Eh... <br/>
+    check. Or maybe it's better not to touch it to be sure? Eh... <br />
 </p>
 
 <p>And have you noticed how testing such a code looks like in practice?
@@ -109,9 +107,9 @@
     out of touch with reality. Test cases may have little to do with what
     this class actually does. Even if I want to mock some dependencies, I
     usually mock most or all of them. The solution to this problem is a
-    test with the application context. The problem is that such tests are
+    test with the application context. But such tests are
     run quite rarely. Why? Because they're slow. And they are slow because
-    providing context takes a long time. But more on that later.<br/>
+    providing context takes a long time. But more on that later.<br />
 </p>
 
 <p>Of course, I do not mean the criticism of inversion of control (IoC)
@@ -121,12 +119,12 @@
     of uncertainty. One where I can easily see it and verify it because it
     won't be hidden deep in the Behemoth's bowels. In other words - simple,
     readable, easily and quickly verifiable, obvious, statically typed and
-    validated during compilation.<br/>
+    validated during compilation.<br />
 </p>
 
 <p>And does DI need to be provided by an additional framework? In my
     opinion, this is such an important, inherent and fundamental issue that
-    it shouldn't be like that!<br/>
+    it shouldn't be like that!<br />
 </p>
 
 <h2>Overcomplication</h2>
@@ -137,37 +135,35 @@
     it should! So why so many times in job interviews have I heard
     questions about the implementation details of this Behemoth? Well,
     because the longer you use it, the more you know that it is not that
-    easy.<br/>
+    easy.<br />
 </p>
 
 <p>Spring is very complicated and as it is the core of many&nbsp;
     applications, it transfers this complexity into them. For simple
     applications it is not so visible, but remember the software resembles
-    a garden and grows very easily. Almost every spring application that I
+    a garden and grows very easily. In almost every spring application that I
     worked on, I saw some tricks, oversized configurations and non-standard
     approaches. Probably the most twisted solutions are in SpringSecurity -
     the element that should be the most obvious and trustworthy. And in the
     days before SpringBoot (not so old after all) it was even worse. Let's
     add deep reflection and breaking the code with it to get spaghetti
-    after which you can get severe indigestion.<br/>
+    after which you can get severe indigestion.<br />
 </p>
 
-<p>Or maybe you know something like this:<br/>
+<p>Or maybe you know something like this:<br />
 </p>
 
-<div style="text-align: center;"><img style="width: 75%;" alt="Przykładowy stos wywołań Springa"
-                                      src="pics/1_spring_stack_trace.png"/><br/>
+<div style="text-align: center;"><img style="width: 75%;" alt="Przykładowy stos wywołań Springa" src="pics/1_spring_stack_trace.png" /><br />
 </div>
 
-<p>This is a snapshot of the stack in the controller of a <a href="https://github.com/BartoszBlaszczak/PaymentStore"
-                                                             >very
+<p>This is a snapshot of the stack in the controller of a <a href="https://github.com/BartoszBlaszczak/PaymentStore">very
     simple
     application</a>. And yes - this is truncated as you can see from the
     scroll
     bar. Don't You think there is too much of it? If it only concerned
-    server calls, but I always see something like this when I watch the
+    server calls, but I see something like this every time I watch the
     communication of beans. I can see it in the exception logs. I can see
-    it everywhere. Is it normal?<br/>
+    it everywhere. Is it normal?<br />
 </p>
 
 <p style="text-align: center; font-style: italic;">Keep It Simple,
@@ -176,16 +172,16 @@
 <h2>Low efficiency</h2>
 
 <p>There is also a problem of poor performance. The application from
-    the example above is extremely simple. Actually, it is a demo written
-    for the recruitment process for a certain company (and yes - they hired
-    me :)). It is written in the pretty fresh SpringBoot and it rises on my
-    laptop (i7-7700HQ) for about 2 seconds. Not bad, but such an
-    application should get up few times faster. Real business applications
-    on Spring sometimes get up so long that you can even make a cup of tea
-    in the meantime. Do we live in the seventies to be so?</p>
+the example above is extremely simple. Actually, it is a demo written
+for the recruitment process for a certain company (and yes - they hired
+me :)). It is written in the pretty fresh SpringBoot and it start up on
+my laptop (i7-7700HQ) in about 2 seconds. Not bad, but such an
+application should start up few times faster. Real Spring business
+applications sometimes get up so long that you can even make a cup of
+tea in the meantime. Do we live in the seventies to be so?</p>
 
 <p>Another problem - about which I wrote above - is that integration
-    tests take so long that I know people who do not release them during
+    tests take so long that I know people who do not run them during
     implementation. Who would want to waste so much time? :) And at the end
     it turns out that half of the new feature needs to be rewrited.</p>
 
@@ -200,7 +196,7 @@
     container. How many absurdly unnecessary layers!</p>
 
 <p>In addition to the developer's convenience argument, there is one
-    more that we will think about when we pay for hosting :)<br/>
+    more that we will think about when we pay for hosting :)<br />
 </p>
 
 <h2>Magic approach - instead of engineering</h2>
@@ -227,7 +223,7 @@
 
 <h2>Departure from UNIX philosophy</h2>
 
-<p>Finally, one more reflection. Do you still remember the UNIX
+<p>Finally, one more reflection. Do you remember the UNIX
     philosophy? I know that it is often not used anymore, that there is a
     lot of good software that is definitely not small and single-purpose
     and that, as everything in life, you need to find a convenient
@@ -237,9 +233,9 @@
     probably cool, right?" Doesn't it remind you of something?</p>
 
 <p style="text-align: center; font-style: italic;">One ring to rule
-    them all,<br/>
-    one ring to find them,<br/>
-    One ring to bring them all<br/>
+    them all,<br />
+    one ring to find them,<br />
+    One ring to bring them all<br />
     and in the darkness bind them.</p>
 
 <h2>What alternative?</h2>
@@ -262,7 +258,7 @@
     a very simple DI framework based on a mirocontainer by myself. It
     solved many of the problems discussed above, but it was still not a
     perfect solution, so I started to wonder how to make a good DI without
-    any framework. I made a few assumptions. It should be:<br/>
+    any framework. I made a few assumptions. It should be:<br />
 </p>
 
 <ul>
@@ -283,11 +279,11 @@
     based on this idea.</p>
 
 <p>At that time, I also met and fell in love with a new language -
-    Kotlina. It is what I need from the language and what Scala should have
+    Kotlin. It is what I need from the language and what Scala should have
     been from the beginning and never became. Since then, I have been
     writing privately on JVM only in Kotlin - and trying my hand at Kotlin
     outside of JVM. This language and its entire ecosystem bring many
-    interesting solutions. It also makes something that would be breakneck
+    interesting solutions. It also makes things that would be breakneck
     and uncomfortable in Java, as comfortable, elegant and simple. It
     allows me to focus on the merits instead of heroically struggling with
     things I shouldn't be doing at all. The aforementioned idea for a
@@ -309,9 +305,9 @@
     classes. In the first case, we become even more dependent on the
     framework, and in the second, we completely deviate from the Singleton
     pattern. The ideal solution would be if the language itself supports
-    this pattern and as it turns out, this is exactly what the Kotlin's
+    this pattern and this is exactly what the Kotlin's
     objects are. I decided to use them as the basis for the application
-    beans.<span style="font-style: italic;"><br/>
+    beans.<span style="font-style: italic;"><br />
 </span></p>
 
 <h3>Context</h3>
@@ -323,7 +319,7 @@
     context comes in handy. However, the container-based context is what I
     just wanted to avoid, so the solution came to my mind - I just need a
     contextual class where beans will be its fields (in the Kotlin world it
-    is called properties). Singletons can get their dependencies from such
+    is called <span style="font-style: italic;">properties</span>). Singletons can get their dependencies from such
     a source instead of the constructor. An almost trivial solution. To
     avoid problems with loading the beans and their sequence, I made them
     lazy. To that I added a very simple profile implementation and that's
@@ -332,56 +328,7 @@
 <p>
 </p>
 
-<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span
-        style="color: rgb(204, 120, 50);">open class </span>AppContext(args: Array<span
-        style="color: rgb(255, 254, 0);">&lt;</span>String<span style="color: rgb(255, 254, 0);">&gt;</span>) <span
-        style="color: rgb(255, 254, 0);">{<br/></span><span style="color: rgb(255, 254, 0);">    </span><span
-        style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">properties </span><span
-        style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span
-        style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>AppProperties(args) <span
-        style="color: rgb(255, 120, 32); font-weight: bold;">}<br/></span><span
-        style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span style="color: rgb(204, 120, 50);">private val </span><span
-        style="color: rgb(152, 118, 170);">profiles </span><span style="color: rgb(255, 254, 0);">= </span><span
-        style="font-style: italic;">lazy </span><span
-        style="color: rgb(255, 120, 32); font-weight: bold;">{ </span><span style="font-style: italic;">listOf</span>(DemoProfile).<span
-        style="color: rgb(255, 198, 109); font-style: italic;">filter </span><span
-        style="color: rgb(255, 120, 32); font-weight: bold;">{ </span><span style="color: rgb(152, 118, 170);">properties</span>.<span
-        style="color: rgb(152, 118, 170);">value</span>.<span style="color: rgb(152, 118, 170);">profiles</span>.contains(<span
-        style="font-weight: bold;">it</span>.<span style="color: rgb(152, 118, 170);">name</span>) <span
-        style="color: rgb(255, 120, 32); font-weight: bold;">} }<br/></span><span
-        style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span style="color: rgb(204, 120, 50);">private fun </span><span
-        style="color: rgb(255, 254, 0);">&lt;</span><span style="color: rgb(32, 153, 157);">T</span><span
-        style="color: rgb(255, 254, 0);">&gt; </span><span style="color: rgb(255, 198, 109);">from</span>(supplier: (Profile) -&gt; <span
-        style="color: rgb(32, 153, 157);">T</span>?): <span style="color: rgb(32, 153, 157);">T</span>? <span
-        style="color: rgb(255, 254, 0);">= </span><span style="color: rgb(152, 118, 170);">profiles</span>.<span
-        style="color: rgb(152, 118, 170);">value</span>.<span style="color: rgb(255, 198, 109); font-style: italic;">firstNotNullOfOrNull</span>(supplier::invoke)<br/>    <br/>    <span
-        style="color: rgb(204, 120, 50);">open val </span><span
-        style="color: rgb(152, 118, 170);">postsRepository </span><span style="color: rgb(255, 254, 0);">= </span><span
-        style="font-style: italic;">lazy </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>from(Profile::<span
-        style="color: rgb(152, 118, 170);">postsRepository</span>) ?: DatabasePostsRepository <span
-        style="color: rgb(255, 120, 32); font-weight: bold;">}<br/></span><span
-        style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span
-        style="color: rgb(204, 120, 50);">open val </span><span
-        style="color: rgb(152, 118, 170);">databaseConnection </span><span
-        style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span
-        style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>DriverManager.getConnection(<span
-        style="color: rgb(152, 118, 170);">properties</span>.<span style="color: rgb(152, 118, 170);">value</span>.<span
-        style="color: rgb(152, 118, 170);">dbURL</span>) <span
-        style="color: rgb(255, 120, 32); font-weight: bold;">}<br/></span><span style="color: rgb(255, 254, 0);">}<br/></span><span
-        style="color: rgb(255, 254, 0);"><br/></span><span style="color: rgb(204, 120, 50);">private interface </span>Profile <span
-        style="color: rgb(255, 254, 0);">{<br/></span><span style="color: rgb(255, 254, 0);">    </span><span
-        style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">name</span>: String<br/>    <span
-        style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">postsRepository</span>: PostsRepository? <span
-        style="color: rgb(204, 120, 50);">get</span>() <span style="color: rgb(255, 254, 0);">= </span><span
-        style="color: rgb(204, 120, 50);">null<br/></span><span style="color: rgb(255, 254, 0);">}<br/></span><span
-        style="color: rgb(255, 254, 0);"><br/></span><span style="color: rgb(204, 120, 50);">private object </span>DemoProfile : Profile <span
-        style="color: rgb(255, 254, 0);">{<br/></span><span style="color: rgb(255, 254, 0);">    </span><span
-        style="color: rgb(204, 120, 50);">override val </span><span style="color: rgb(152, 118, 170);">name </span><span
-        style="color: rgb(255, 254, 0);">= </span><span style="color: rgb(106, 135, 89);">"demo"<br/></span><span
-        style="color: rgb(106, 135, 89);">    </span><span style="color: rgb(204, 120, 50);">override val </span><span
-        style="color: rgb(152, 118, 170);">postsRepository</span>: PostsRepository <span
-        style="color: rgb(255, 254, 0);">= </span>DemoPostsRepository<br/><span
-        style="color: rgb(255, 254, 0);">}</span></pre>
+<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span style="color: rgb(204, 120, 50);">open class </span>AppContext(args: Array<span style="color: rgb(255, 254, 0);">&lt;</span>String<span style="color: rgb(255, 254, 0);">&gt;</span>) <span style="color: rgb(255, 254, 0);">{<br /></span><span style="color: rgb(255, 254, 0);">    </span><span style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">properties </span><span style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>AppProperties(args) <span style="color: rgb(255, 120, 32); font-weight: bold;">}<br /></span><span style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span style="color: rgb(204, 120, 50);">private val </span><span style="color: rgb(152, 118, 170);">profiles </span><span style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span><span style="font-style: italic;">listOf</span>(DemoProfile).<span style="color: rgb(255, 198, 109); font-style: italic;">filter </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span><span style="color: rgb(152, 118, 170);">properties</span>.<span style="color: rgb(152, 118, 170);">value</span>.<span style="color: rgb(152, 118, 170);">profiles</span>.contains(<span style="font-weight: bold;">it</span>.<span style="color: rgb(152, 118, 170);">name</span>) <span style="color: rgb(255, 120, 32); font-weight: bold;">} }<br /></span><span style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span style="color: rgb(204, 120, 50);">private fun </span><span style="color: rgb(255, 254, 0);">&lt;</span><span style="color: rgb(32, 153, 157);">T</span><span style="color: rgb(255, 254, 0);">&gt; </span><span style="color: rgb(255, 198, 109);">from</span>(supplier: (Profile) -&gt; <span style="color: rgb(32, 153, 157);">T</span>?): <span style="color: rgb(32, 153, 157);">T</span>? <span style="color: rgb(255, 254, 0);">= </span><span style="color: rgb(152, 118, 170);">profiles</span>.<span style="color: rgb(152, 118, 170);">value</span>.<span style="color: rgb(255, 198, 109); font-style: italic;">firstNotNullOfOrNull</span>(supplier::invoke)<br />    <br />    <span style="color: rgb(204, 120, 50);">open val </span><span style="color: rgb(152, 118, 170);">postsRepository </span><span style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>from(Profile::<span style="color: rgb(152, 118, 170);">postsRepository</span>) ?: DatabasePostsRepository <span style="color: rgb(255, 120, 32); font-weight: bold;">}<br /></span><span style="color: rgb(255, 120, 32); font-weight: bold;">    </span><span style="color: rgb(204, 120, 50);">open val </span><span style="color: rgb(152, 118, 170);">databaseConnection </span><span style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>DriverManager.getConnection(<span style="color: rgb(152, 118, 170);">properties</span>.<span style="color: rgb(152, 118, 170);">value</span>.<span style="color: rgb(152, 118, 170);">dbURL</span>) <span style="color: rgb(255, 120, 32); font-weight: bold;">}<br /></span><span style="color: rgb(255, 254, 0);">}<br /></span><span style="color: rgb(255, 254, 0);"><br /></span><span style="color: rgb(204, 120, 50);">private interface </span>Profile <span style="color: rgb(255, 254, 0);">{<br /></span><span style="color: rgb(255, 254, 0);">    </span><span style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">name</span>: String<br />    <span style="color: rgb(204, 120, 50);">val </span><span style="color: rgb(152, 118, 170);">postsRepository</span>: PostsRepository? <span style="color: rgb(204, 120, 50);">get</span>() <span style="color: rgb(255, 254, 0);">= </span><span style="color: rgb(204, 120, 50);">null<br /></span><span style="color: rgb(255, 254, 0);">}<br /></span><span style="color: rgb(255, 254, 0);"><br /></span><span style="color: rgb(204, 120, 50);">private object </span>DemoProfile : Profile <span style="color: rgb(255, 254, 0);">{<br /></span><span style="color: rgb(255, 254, 0);">    </span><span style="color: rgb(204, 120, 50);">override val </span><span style="color: rgb(152, 118, 170);">name </span><span style="color: rgb(255, 254, 0);">= </span><span style="color: rgb(106, 135, 89);">"demo"<br /></span><span style="color: rgb(106, 135, 89);">    </span><span style="color: rgb(204, 120, 50);">override val </span><span style="color: rgb(152, 118, 170);">postsRepository</span>: PostsRepository <span style="color: rgb(255, 254, 0);">= </span>DemoPostsRepository<br /><span style="color: rgb(255, 254, 0);">}</span></pre>
 
 <p>Just a dozen lines of code. Each bean in context is one line of code
     - the same as @Component annotation or JavaConfig entry. The beans may
@@ -391,33 +338,19 @@
 <p>
 </p>
 
-<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span
-        style="color: rgb(204, 120, 50);">object </span>TestContext : AppContext(<span style="font-style: italic;">arrayOf</span>()) <span
-        style="color: rgb(255, 254, 0);">{<br/></span><span style="color: rgb(255, 254, 0);">   </span><span
-        style="color: rgb(204, 120, 50);">override val </span><span style="color: rgb(152, 118, 170);">databaseConnection </span><span
-        style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy</span><span
-        style="color: rgb(255, 254, 0);">&lt;</span>Connection<span style="color: rgb(255, 254, 0);">&gt; </span><span
-        style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>DriverManager.getConnection(<span
-        style="color: rgb(106, 135, 89);">"jdbc:sqlite::memory:"</span>) <span
-        style="color: rgb(255, 120, 32); font-weight: bold;">}<br/></span><span
-        style="color: rgb(255, 254, 0);">}</span></pre>
+<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span style="color: rgb(204, 120, 50);">object </span>TestContext : AppContext(<span style="font-style: italic;">arrayOf</span>()) <span style="color: rgb(255, 254, 0);">{<br /></span><span style="color: rgb(255, 254, 0);">   </span><span style="color: rgb(204, 120, 50);">override val </span><span style="color: rgb(152, 118, 170);">databaseConnection </span><span style="color: rgb(255, 254, 0);">= </span><span style="font-style: italic;">lazy</span><span style="color: rgb(255, 254, 0);">&lt;</span>Connection<span style="color: rgb(255, 254, 0);">&gt; </span><span style="color: rgb(255, 120, 32); font-weight: bold;">{ </span>DriverManager.getConnection(<span style="color: rgb(106, 135, 89);">"jdbc:sqlite::memory:"</span>) <span style="color: rgb(255, 120, 32); font-weight: bold;">}<br /></span><span style="color: rgb(255, 254, 0);">}</span></pre>
 
 <p>Here's what loading beans from context looks like:</p>
 
 <p>
 </p>
 
-<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span
-        style="color: rgb(204, 120, 50);">object </span>Controller <span
-        style="color: rgb(255, 254, 0);">{<br/></span><span style="color: rgb(255, 254, 0);">   </span><span
-        style="color: rgb(204, 120, 50);">private val </span><span style="color: rgb(152, 118, 170);">repository </span><span
-        style="color: rgb(204, 120, 50);">by </span><span style="color: rgb(152, 118, 170); font-style: italic;">appContext</span>.<span
-        style="color: rgb(152, 118, 170);">postsRepository</span></pre>
+<pre style="background-color: rgb(43, 43, 43); color: rgb(169, 183, 198); font-family: 'JetBrains Mono',monospace;"><span style="color: rgb(204, 120, 50);">object </span>Controller <span style="color: rgb(255, 254, 0);">{<br /></span><span style="color: rgb(255, 254, 0);">   </span><span style="color: rgb(204, 120, 50);">private val </span><span style="color: rgb(152, 118, 170);">repository </span><span style="color: rgb(204, 120, 50);">by </span><span style="color: rgb(152, 118, 170); font-style: italic;">appContext</span>.<span style="color: rgb(152, 118, 170);">postsRepository</span></pre>
 
 <p>And it is validated on compilation time (of course, the IDE easily
     prompts everything) and statically typed. It is also subject to the
-    Kotlin's null safety.<br/>
-    I was also wondering if all beans should be in context, but I found
+    Kotlin's null safety.<br />
+    I was also wondering if all beans should be in context, and decided
     that I will only give there those that really depend on the runtime
     context, are adapters (in the architecture of ports and adapters) and
     those that I would like to mock in tests. Everything else can be
@@ -425,9 +358,9 @@
 
 <p>This solution gives inversion of control without the use of a
     container. And what about the functionalities that Spring gives us?
-    Here I stated that we should apply the UNIX principle. There are a lot
+    Here I stated that we should apply the UNIX principle. There are a plenty
     of solutions on the market for every need and I will deal with their
-    analysis and comparison on this blog.<br/>
+    analysis and comparison on this blog.<br />
 </p>
 
 <h2>Does it even work?</h2>
@@ -435,21 +368,20 @@
 <p>Exactly. I was curious how such a solution would fall into practice,
     so I decided to combine it with my plan to create this blog and wrote
     it as an application based on this idea. It turned out that it works
-    without any problems and meets all the assumptions in my opinion. It
+    without any problems and,&nbsp; in my opinion, meets all the assumptions. It
     starts up in no time and works flawlessly. As a server I used <a href="https://ktor.io/">Ktor</a> -
     the most popular server in the Kotlin world. I had some concerns about
     it - it is actually a framework. Fortunately, it is limited to serving
     and does not affect the overall application; it's well customizable and
-    has great documentation. <br/>
+    has great documentation. <br />
 </p>
 <p>Everything is published on GitHub <a href="https://github.com/BartoszBlaszczak/hexlog">here</a>.
     This
     application is very simple and will grow with this blog, which will
-    become the best test for it. <br/>
+    become the best test for it. <br />
 </p>
 <p>Please review the code and let me know
-    what you think :)<br/>
+    what you think :)<br />
 </p>
 
-</body>
-</html>
+</body></html>
