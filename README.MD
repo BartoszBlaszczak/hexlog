@@ -30,8 +30,9 @@ To start this application locally run `java -jar ApplicationKt` with args:
 * keystorePassword=[default is JKS]
 * dbURL=[URL to SQLite database, default is 'jdbc:sqlite:database.sqlite']
 * hexlog_profiles=[Profiles in which this application can run. For now, the 'demo' profile is supported. The default is blank.]
+* address=[http address, for example http://localhost:8060]
 
-E.g. `java -jar build/libs/hexlog-1.0.0.jar useSSL=false hexlog_profiles=demo` 
+E.g. `java -jar build/libs/hexlog-1.0.0.jar useSSL=false hexlog_profiles=demo address=http://localhost:8060` 
 will run hex.log without SSL and with 'demo' profile that do not use sql database but shows static posts.
 
 Hex.log will be available at http://localhost:[httpPort]
