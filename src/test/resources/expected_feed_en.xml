@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <title>&lt; Hex.log &gt;</title>
-  <link rel="alternate" href="https://hexlog.dev" />
+  <link rel="alternate" href="/EN" />
   <subtitle>programming blog</subtitle>
   <dc:language>en</dc:language>
   <entry>
