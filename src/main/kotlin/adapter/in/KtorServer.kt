@@ -1,5 +1,6 @@
 package adapter.`in`
 
+import adapter.`in`.AtomController.atom
 import adapter.`in`.Controller.pages
 import adapter.`in`.Expiration.ONE_MONTH
 import appContext
@@ -77,6 +78,7 @@ object KtorServer {
 				static("/web/static") { interceptExpiration(ONE_MONTH); resources("web/static") }
 				static { resource("/favicon.ico", "web/static/icons/favicon.ico") }
 				pages()
+				atom()
 			}
 		}
 	})

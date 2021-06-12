@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>&lt; Hex.log &gt;</title>
+  <link rel="alternate" href="https://hexlog.dev" />
+  <subtitle>programming blog</subtitle>
+  <dc:language>en</dc:language>
+  <entry>
+    <title>title</title>
+    <link rel="alternate" href="/EN/post/2" />
+    <category term="Software development" />
+    <author>
+      <name>Hex</name>
+    </author>
+    <updated>2021-05-04T22:00:00Z</updated>
+    <published>2021-05-04T22:00:00Z</published>
+    <summary>shortcut</summary>
+    <dc:creator>Hex</dc:creator>
+    <dc:date>2021-05-04T22:00:00Z</dc:date>
+  </entry>
+</feed>
