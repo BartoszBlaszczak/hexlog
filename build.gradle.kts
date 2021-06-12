@@ -15,7 +15,7 @@ dependencies {
     val kotlinVersion = "1.5.10"
     val ktorVersion = "1.6.0"
     
-    //Force to use 1.5.0 version for transitive dependencies to avoid compilation warnings:
+    //Force to use 1.5 version for transitive dependencies to avoid compilation warnings:
     implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
     implementation("org.jetbrains.kotlin:kotlin-script-runtime:$kotlinVersion")
     
