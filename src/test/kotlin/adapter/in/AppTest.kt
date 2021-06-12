@@ -14,15 +14,19 @@ import io.ktor.client.*
 import io.ktor.client.engine.java.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
+import io.ktor.http.*
 import io.ktor.http.HttpStatusCode.Companion.Found
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
 import java.lang.ClassLoader.getSystemResource
+import java.nio.charset.Charset.defaultCharset
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME
 
 class AppTest : RunningAppTest({
 	this as AppTest
+	
+	beforeSpec { insertFewPosts() }
 	
 	test("health check") {
 		// when
@@ -52,8 +56,6 @@ class AppTest : RunningAppTest({
 	
 	test("get page") {
 		// given
-		insertFewPosts()
-		
 		table(
 			headers("path", "expirency date", "expected content"),
 			row("/en/about", nextMonth, "expected_about_page_en.html"),
@@ -69,8 +71,7 @@ class AppTest : RunningAppTest({
 			// then
 			response.status shouldBe OK
 			getExpirencyDate(response) shouldBe expirency_date
-			val responseBody = response.readText()
-			responseBody shouldBe getSystemResource(expected_content_path).readText()
+			response.readText() shouldBe getSystemResource(expected_content_path).readText()
 			
 			response.headers["X-Frame-Options"] shouldBe "SAMEORIGIN"
 			response.headers["X-XSS-Protection"] shouldBe "1"
@@ -94,6 +95,22 @@ class AppTest : RunningAppTest({
 			// then
 			response.status shouldBe NotFound
 			response.readText() shouldBe ""
+		}
+	}
+	
+	test("get feed") {
+		table(
+			headers("path", "expected content"),
+			row("/en/feed", "expected_feed_en.xml"),
+			row("/pl/feed", "expected_feed_pl.xml"),
+		).forAll { path, expectedContent ->
+			// when
+			val response: HttpResponse = client.get(address + path)
+			
+			// then
+			response.status shouldBe OK
+			response.contentType() shouldBe ContentType.Application.Atom.withCharset(defaultCharset())
+			response.readText() shouldBe getSystemResource(expectedContent).readText()
 		}
 	}
 }) {

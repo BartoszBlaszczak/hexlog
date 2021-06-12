@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "hex"
-version ="1.0.6"
+version ="1.0.6-atom"
 
 repositories {
     mavenCentral()
@@ -12,11 +12,12 @@ repositories {
 }
 
 dependencies {
+    val kotlinVersion = "1.5.10"
     val ktorVersion = "1.6.0"
     
     //Force to use 1.5.0 version for transitive dependencies to avoid compilation warnings:
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.5.10")
-    implementation("org.jetbrains.kotlin:kotlin-script-runtime:1.5.10")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-script-runtime:$kotlinVersion")
     
     implementation("org.xerial", "sqlite-jdbc", "3.34.0")
     implementation("org.slf4j:slf4j-jdk14:1.7.30")
@@ -26,6 +27,7 @@ dependencies {
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-thymeleaf:$ktorVersion")
     implementation("org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.4.RELEASE")
+    implementation("com.rometools:rome:1.15.0")
 
     testImplementation("io.kotest:kotest-runner-junit5-jvm:4.6.0")
     testImplementation("io.ktor:ktor-client-core:$ktorVersion")
