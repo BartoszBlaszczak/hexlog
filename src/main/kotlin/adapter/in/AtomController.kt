@@ -18,7 +18,7 @@ import java.util.Date
 object AtomController {
 	private val postsRepository by appContext.postsRepository
 	private val outputGenerator = SyndFeedOutput()
-	
+	private val properties by appContext.properties
 	
 	fun Routing.atom() {
 		get("{language}/feed") {
@@ -32,7 +32,7 @@ object AtomController {
 		feed.feedType = "atom_1.0"
 		feed.title = "< Hex.log >"
 		feed.description = "programming blog"
-		feed.link = "/$language"
+		feed.link = "${properties.address}/$language"
 		feed.language = language.locale.toString()
 		
 		feed.entries = postsRepository.findAll(language).map { post ->
@@ -40,7 +40,7 @@ object AtomController {
 				title = post.title
 				publishedDate = Date.from(post.createDate.atZone(systemDefault()).toInstant())
 				author = "Hex"
-				link = "/$language/post/${post.id?.value}"
+				link = "${properties.address}/$language/post/${post.id?.value}"
 				categories = listOf(SyndCategoryImpl().apply { name = "Software development" })
 				description = SyndContentImpl().apply { value = post.shortcut }
 			}

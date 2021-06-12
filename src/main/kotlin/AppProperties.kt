@@ -17,6 +17,7 @@ class AppProperties(properties: Properties) {
 	
 	val profiles: List<String> = properties.getProperty("hexlog_profiles", "").split(',')
 	val dbURL: String = properties.getProperty("dbURL", "jdbc:sqlite:database.sqlite")
+	val address: String = properties.getProperty("address")
 	
 	init {
 		logger.info("""HexLogProperties:
@@ -29,6 +30,7 @@ class AppProperties(properties: Properties) {
 			|certAlias: $certAlias
 			|profiles: $profiles
 			|dbURL: $dbURL
+			|address: $address
 			|""".trimMargin())
 	}
 }
