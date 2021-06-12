@@ -32,7 +32,7 @@ object AtomController {
 		feed.feedType = "atom_1.0"
 		feed.title = "< Hex.log >"
 		feed.description = "programming blog"
-		feed.link = "https://hexlog.dev"
+		feed.link = "/$language"
 		feed.language = language.locale.toString()
 		
 		feed.entries = postsRepository.findAll(language).map { post ->
