@@ -10,7 +10,22 @@ function resize_post(post_frame) {
 
 function toggle_collapse(post_header) {
     post_header.classList.toggle("active");
-    toggle_height_of(post_header.nextElementSibling)
+    let post_panel = post_header.nextElementSibling;
+    if(!post_panel.firstChild) addPostIframe(post_panel, post_header.id)
+    toggle_height_of(post_panel)
+}
+
+function addPostIframe(panel, postId) {
+    // Goddamn Firefox cannot lazy load iframes
+    // and has a bug https://bugzilla.mozilla.org/show_bug.cgi?id=478273 about their loading
+    // so they must be created dynamically :/
+    
+    let iframe = document.createElement("iframe");
+    iframe.src = 'posts/'+postId+'.html'
+    iframe.classList.add('post-frame');
+    iframe.onload=() => resize_post(iframe)
+    
+    panel.appendChild(iframe)
 }
 
 function toggle_height_of(element) {

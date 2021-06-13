@@ -16,9 +16,7 @@
             </p>
             <p th:text="${post.shortcut}"></p>
         </button>
-        <div class="post-panel">
-            <iframe th:src="|/posts/${post.id.value}.html|" class="post-frame" loading="lazy" onload="resize_post(this)"></iframe>
-        </div>
+        <div class="post-panel"></div>
     </div>
     <br>
 </div>
