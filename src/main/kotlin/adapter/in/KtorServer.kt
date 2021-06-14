@@ -67,7 +67,7 @@ object KtorServer {
 				format {
 					"REQUEST ${it.request.httpMethod.value} ${it.request.uri} " +
 					"FROM: ${it.request.headers["User-agent"]} ${it.request.headers["Accept-language"]} " +
-					">> ${it.response.status()?.description}"
+					">> ${it.response.status()?.description} ${it.response.headers["location"]?:""}"
 				}
 			}
 			
