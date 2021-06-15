@@ -63,9 +63,9 @@ object KtorServer {
 			
 			install(CallLogging) {
 				level = Level.INFO
-				filter { !it.request.uri.contains(Regex("static|posts|favicon|health")) }
+				filter { !it.request.uri.contains(Regex("static|posts/pics|favicon|health")) }
 				format {
-					"REQUEST ${it.request.httpMethod.value} ${it.request.uri} " +
+					"REQUEST ${it.request.local.scheme} ${it.request.httpMethod.value} ${it.request.local.host} ${it.request.uri} " +
 					"FROM: ${it.request.headers["User-agent"]} ${it.request.headers["Accept-language"]} " +
 					">> ${it.response.status()?.description} ${it.response.headers["location"]?:""}"
 				}
