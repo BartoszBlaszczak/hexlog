@@ -4,23 +4,38 @@ import adapter.`in`.AtomController.atom
 import adapter.`in`.Controller.pages
 import adapter.`in`.Expiration.ONE_MONTH
 import appContext
-import io.ktor.application.*
+import io.ktor.application.ApplicationCall
 import io.ktor.application.ApplicationCallPipeline.ApplicationPhase.Call
-import io.ktor.features.*
+import io.ktor.application.call
+import io.ktor.application.install
+import io.ktor.application.log
+import io.ktor.features.CallLogging
+import io.ktor.features.DefaultHeaders
+import io.ktor.features.HttpsRedirect
+import io.ktor.features.StatusPages
 import io.ktor.http.HttpStatusCode.Companion.InternalServerError
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
-import io.ktor.http.content.*
-import io.ktor.request.*
-import io.ktor.response.*
-import io.ktor.routing.*
-import io.ktor.server.engine.*
-import io.ktor.server.netty.*
-import io.ktor.thymeleaf.*
-import io.ktor.util.pipeline.*
+import io.ktor.http.content.files
+import io.ktor.http.content.resource
+import io.ktor.http.content.resources
+import io.ktor.http.content.static
+import io.ktor.request.httpMethod
+import io.ktor.request.uri
+import io.ktor.response.expires
+import io.ktor.response.respond
+import io.ktor.routing.Route
+import io.ktor.routing.get
+import io.ktor.routing.head
+import io.ktor.routing.routing
+import io.ktor.server.engine.ApplicationEngineEnvironmentBuilder
+import io.ktor.server.engine.applicationEngineEnvironment
+import io.ktor.server.engine.connector
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.engine.sslConnector
+import io.ktor.server.netty.Netty
+import io.ktor.util.pipeline.PipelineContext
 import org.slf4j.event.Level
-import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect
-import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver
 import java.io.FileInputStream
 import java.security.KeyStore
 import java.time.LocalDateTime
@@ -34,14 +49,6 @@ object KtorServer {
 		
 		module {
 			if(properties.useSSL) install(HttpsRedirect) { sslPort = properties.externalHttpsPort }
-			
-			install(Thymeleaf) {
-				setTemplateResolver(ClassLoaderTemplateResolver().apply {
-					prefix = "/web/template/"
-					characterEncoding = "utf-8"
-					addDialect(Java8TimeDialect())
-				})
-			}
 			
 			install(StatusPages) {
 				exception<NoSuchElementException> { it.message; call.respond(NotFound) }

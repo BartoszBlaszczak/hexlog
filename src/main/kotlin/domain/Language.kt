@@ -8,8 +8,12 @@ enum class Language(val locale: Locale) {
 
     fun supports(locale: Locale): Boolean = this.locale.language.equals(locale.language, ignoreCase = true)
     
+    override fun toString(): String = name.lowercase()
+    
     companion object {
         val Default = EN
-        fun find(value: String): Language = values().find { value.uppercase() == it.name } ?: throw NoSuchElementException()
+        
+        fun find(value: String): Language =
+            values().find { value.uppercase() == it.name } ?: throw NoSuchElementException()
     }
 }
