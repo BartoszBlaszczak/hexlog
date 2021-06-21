@@ -10,14 +10,13 @@ import kotlinx.html.iframe
 import kotlinx.html.onLoad
 import kotlinx.html.p
 import kotlinx.html.span
-import java.time.format.DateTimeFormatter
 
 fun postPage(language: Language, post: Post): HTML.() -> Unit = page(language) {
 	br()
 	div("post") {
 		button(classes = "post-header active") {
 			p {
-				span("post-date") { +post.createDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) }
+				span("post-date") { +post.createDate.formatted() }
 				span("post-title") { +post.title }
 			}
 			p { +post.shortcut }

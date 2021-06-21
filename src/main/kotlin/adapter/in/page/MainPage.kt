@@ -10,7 +10,6 @@ import kotlinx.html.id
 import kotlinx.html.onClick
 import kotlinx.html.p
 import kotlinx.html.span
-import java.time.format.DateTimeFormatter
 
 fun mainPage(language: Language, posts: Array<Post>): HTML.() -> Unit = page(language) {
 	br()
@@ -21,7 +20,7 @@ fun mainPage(language: Language, posts: Array<Post>): HTML.() -> Unit = page(lan
 				onClick = "toggle_collapse(this)"
 				attributes["onAuxClick"] = "window.open('/${language}/post/${post.id?.value}')"
 				p {
-					span("post-date") { +post.createDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) }
+					span("post-date") { +post.createDate.formatted() }
 					span("post-title") { +post.title }
 				}
 				p { +post.shortcut }

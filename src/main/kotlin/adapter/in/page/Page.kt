@@ -9,6 +9,8 @@ import kotlinx.html.div
 import kotlinx.html.head
 import kotlinx.html.header
 import kotlinx.html.lang
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 fun page(language: Language, mainBody: DIV.() -> Unit): HTML.() -> Unit = {
 	lang = language.toString()
@@ -20,3 +22,5 @@ fun page(language: Language, mainBody: DIV.() -> Unit): HTML.() -> Unit = {
 		br()
 	}
 }
+private val dateFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+fun LocalDateTime.formatted(): String = format(dateFormatter)
