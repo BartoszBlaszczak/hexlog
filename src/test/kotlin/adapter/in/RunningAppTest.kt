@@ -7,7 +7,8 @@ import start
 abstract class RunningAppTest(body: FunSpec.() -> Unit) : FunSpec(body) {
 	companion object {
 		init {
-			System.setProperty("io.ktor.development", "false") //in development mode, Ktor replaces ClassLoader, so HexLogContext does not change (see ContextTest)
+			//in development mode, Ktor replaces ClassLoader, so HexLogContext does not change (see ContextTest)
+			System.setProperty("io.ktor.development", "false")
 			start(TestContext)
 		}
 	}

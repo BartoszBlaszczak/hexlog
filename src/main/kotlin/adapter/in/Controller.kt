@@ -6,11 +6,15 @@ import adapter.`in`.LocaleResolver.getLanguageFromHeader
 import appContext
 import domain.Language
 import domain.PostId
-import io.ktor.application.*
-import io.ktor.response.*
-import io.ktor.routing.*
-import io.ktor.thymeleaf.*
-import io.ktor.util.pipeline.*
+import io.ktor.application.ApplicationCall
+import io.ktor.application.call
+import io.ktor.response.respond
+import io.ktor.response.respondRedirect
+import io.ktor.routing.Routing
+import io.ktor.routing.get
+import io.ktor.routing.route
+import io.ktor.thymeleaf.ThymeleafContent
+import io.ktor.util.pipeline.PipelineInterceptor
 import java.util.Locale
 
 object Controller {
@@ -54,8 +58,10 @@ object Controller {
 		}
 	}
 	
-	private fun getLanguageFromHeader(call: ApplicationCall): Language? = call.request.headers["Accept-language"]?.let(::getLanguageFromHeader)
 	private fun getLanguageFromUrl(call: ApplicationCall) = Language.find(call.parameters["language"]!!)
+	
+	private fun getLanguageFromHeader(call: ApplicationCall): Language? =
+		call.request.headers["Accept-language"]?.let(::getLanguageFromHeader)
 	
 	private fun content(language: Language, template: String, model: Map<String, Any> = mapOf()) = synchronized(this) {
 		Locale.setDefault(language.locale) //see https://github.com/ktorio/ktor/pull/1951

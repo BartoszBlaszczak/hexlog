@@ -10,6 +10,7 @@ enum class Language(val locale: Locale) {
     
     companion object {
         val Default = EN
-        fun find(value: String): Language = values().find { value.uppercase() == it.name } ?: throw NoSuchElementException()
+        fun find(value: String): Language =
+            values().find { value.uppercase() == it.name } ?: throw NoSuchElementException()
     }
 }

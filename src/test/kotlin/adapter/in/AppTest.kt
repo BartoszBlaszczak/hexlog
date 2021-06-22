@@ -10,14 +10,18 @@ import io.kotest.data.headers
 import io.kotest.data.row
 import io.kotest.data.table
 import io.kotest.matchers.shouldBe
-import io.ktor.client.*
-import io.ktor.client.engine.java.*
-import io.ktor.client.request.*
-import io.ktor.client.statement.*
-import io.ktor.http.*
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.java.Java
+import io.ktor.client.request.get
+import io.ktor.client.request.header
+import io.ktor.client.statement.HttpResponse
+import io.ktor.client.statement.readText
+import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode.Companion.Found
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
+import io.ktor.http.contentType
+import io.ktor.http.withCharset
 import java.lang.ClassLoader.getSystemResource
 import java.nio.charset.Charset.defaultCharset
 import java.time.LocalDate
@@ -121,11 +125,12 @@ class AppTest : RunningAppTest({
 	private val nextDay = LocalDate.now().plusDays(1)
 	private val nextMonth = LocalDate.now().plusMonths(1)
 	
-	private fun getExpirencyDate(response: HttpResponse) = LocalDate.parse(response.headers["Expires"]!!, RFC_1123_DATE_TIME)
+	private fun getExpirencyDate(response: HttpResponse) =
+		LocalDate.parse(response.headers["Expires"]!!, RFC_1123_DATE_TIME)
 	
 	fun insertFewPosts() {
 		val createDate = LocalDate.parse("2021-05-05").atStartOfDay()
-		PostCreator.insert(Post(id = PostId(1), createDate = createDate, title = "tytuł", shortcut = "streszczenie", language = Language.PL))
-		PostCreator.insert(Post(id = PostId(2), createDate = createDate, title = "title", shortcut = "shortcut", language = Language.EN))
+		PostCreator.insert(Post(PostId(1), "tytuł", "streszczenie", Language.PL, createDate))
+		PostCreator.insert(Post(PostId(2), title = "title", "shortcut", Language.EN, createDate))
 	}
 }

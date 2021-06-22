@@ -51,7 +51,7 @@ object KtorServer {
 		connector { port = properties.httpPort }
 		
 		module {
-			if(properties.useSSL) install(HttpsRedirect) { sslPort = properties.externalHttpsPort }
+			if (properties.useSSL) install(HttpsRedirect) { sslPort = properties.externalHttpsPort }
 			
 			install(Thymeleaf) {
 				setTemplateResolver(ClassLoaderTemplateResolver().apply {
@@ -83,10 +83,10 @@ object KtorServer {
 				level = Level.INFO
 				filter { !it.request.uri.contains(Regex("static|posts/pics|favicon|health")) }
 				format {
-					"${it.request.headers["Referer"]?:"direct"} REQUESTS " +
-					"${it.request.httpMethod.value} ${it.request.local.scheme}://${it.request.local.host}${it.request.uri} " +
-					"FROM: ${it.request.headers["User-agent"]} ${it.request.headers["Accept-language"]} " +
-					">> ${it.response.status()?.description} ${it.response.headers["location"]?:""}"
+					"${it.request.headers["Referer"] ?: "direct"} REQUESTS " +
+							"${it.request.httpMethod.value} ${it.request.local.scheme}://${it.request.local.host}${it.request.uri} " +
+							"FROM: ${it.request.headers["User-agent"]} ${it.request.headers["Accept-language"]} " +
+							">> ${it.response.status()?.description} ${it.response.headers["location"] ?: ""}"
 				}
 			}
 			
@@ -102,10 +102,12 @@ object KtorServer {
 		}
 	})
 	
-	private fun ApplicationEngineEnvironmentBuilder.connectSSL(){
+	private fun ApplicationEngineEnvironmentBuilder.connectSSL() {
 		val keystorePassword = properties.keystorePassword!!.toCharArray()
 		sslConnector(
-			KeyStore.getInstance(properties.keystoreType).apply { load(FileInputStream(properties.keystorePath), keystorePassword) },
+			keyStore = KeyStore.getInstance(properties.keystoreType).apply {
+				load(FileInputStream(properties.keystorePath), keystorePassword)
+			},
 			keyAlias = properties.certAlias,
 			keyStorePassword = { keystorePassword },
 			privateKeyPassword = { keystorePassword }

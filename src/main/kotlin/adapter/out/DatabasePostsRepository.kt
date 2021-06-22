@@ -9,12 +9,15 @@ import org.slf4j.LoggerFactory
 import java.sql.ResultSet
 import java.time.LocalDateTime
 
-object DatabasePostsRepository: PostsRepository {
+object DatabasePostsRepository : PostsRepository {
 	private val logger = LoggerFactory.getLogger(javaClass)
 	private val connection by appContext.databaseConnection
 	
 	private val findPost = connection.prepareStatement("select * from post where post.id = ?;")
-	private val findAllPosts = connection.prepareStatement("select * from post where post.language = ? order by post.create_date desc;")
+	
+	private val findAllPosts = connection.prepareStatement(
+		"select * from post where post.language = ? order by post.create_date desc;"
+	)
 	
 	init {
 		if (connection.isClosed) logger.error("Database connection is closed!")

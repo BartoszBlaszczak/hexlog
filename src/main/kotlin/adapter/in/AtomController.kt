@@ -8,10 +8,11 @@ import com.rometools.rome.feed.synd.SyndFeed
 import com.rometools.rome.feed.synd.SyndFeedImpl
 import com.rometools.rome.io.SyndFeedOutput
 import domain.Language
-import io.ktor.application.*
+import io.ktor.application.call
 import io.ktor.http.ContentType.Application.Atom
-import io.ktor.response.*
-import io.ktor.routing.*
+import io.ktor.response.respondText
+import io.ktor.routing.Routing
+import io.ktor.routing.get
 import java.time.ZoneId.systemDefault
 import java.util.Date
 
