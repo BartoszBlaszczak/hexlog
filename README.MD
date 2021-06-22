@@ -7,7 +7,7 @@
 
 This is JVM application that [hexlog.dev](https://hexlog.dev) blog runs on.
 
-It is written in kotlin 1.5 and uses Ktor 1.5.4 as a web server and SQLite database.
+It is written in kotlin and uses Ktor as a web server and SQLite database.
 
 Hex.log uses gradle 7+ to build and java 8+ to run. 
 
