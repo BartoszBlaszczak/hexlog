@@ -11,7 +11,7 @@ import kotlin.random.Random
 
 class DatabasePostsRepositoryTest : ContextTest({
 	this as DatabasePostsRepositoryTest
- 
+	
 	test("find all posts") {
 		// given
 		val post1 = Post(title = "tytuł 1", shortcut = "streszczenie 1", language = PL).also(PostCreator::insert)
@@ -20,16 +20,16 @@ class DatabasePostsRepositoryTest : ContextTest({
 		
 		// when
 		val found = DatabasePostsRepository.findAll(PL)
-	 
-	    // then
+		
+		// then
 		found.any { it basedOn post1 } shouldBe true
 		found.any { it basedOn post2 } shouldBe true
 		found.any { it basedOn post3 } shouldBe false
-    }
+	}
 	
 	test("find by id") {
 		// given
-		val post = Post(id = PostId(Random.nextLong()), title = "tytuł", shortcut = "streszczenie", language = PL).also(PostCreator::insert)
+		val post = Post(PostId(Random.nextLong()), "tytuł", "streszczenie", PL).also(PostCreator::insert)
 		
 		// when
 		val found = DatabasePostsRepository.find(post.id!!)
@@ -39,5 +39,9 @@ class DatabasePostsRepositoryTest : ContextTest({
 	}
 }) {
 	private infix fun Post.basedOn(other: Post): Boolean =
-		id != null && updateDate == other.updateDate && title == other.title && shortcut == other.shortcut && language == other.language
+		id != null &&
+		updateDate == other.updateDate &&
+		title == other.title &&
+		shortcut == other.shortcut &&
+		language == other.language
 }

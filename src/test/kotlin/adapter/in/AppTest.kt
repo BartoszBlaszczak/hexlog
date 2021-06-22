@@ -125,11 +125,12 @@ class AppTest : RunningAppTest({
 	private val nextDay = LocalDate.now().plusDays(1)
 	private val nextMonth = LocalDate.now().plusMonths(1)
 	
-	private fun getExpirencyDate(response: HttpResponse) = LocalDate.parse(response.headers["Expires"]!!, RFC_1123_DATE_TIME)
+	private fun getExpirencyDate(response: HttpResponse) =
+		LocalDate.parse(response.headers["Expires"]!!, RFC_1123_DATE_TIME)
 	
 	fun insertFewPosts() {
 		val createDate = LocalDate.parse("2021-05-05").atStartOfDay()
-		PostCreator.insert(Post(id = PostId(1), createDate = createDate, title = "tytuł", shortcut = "streszczenie", language = Language.PL))
-		PostCreator.insert(Post(id = PostId(2), createDate = createDate, title = "title", shortcut = "shortcut", language = Language.EN))
+		PostCreator.insert(Post(PostId(1), "tytuł", "streszczenie", Language.PL, createDate))
+		PostCreator.insert(Post(PostId(2), title = "title", "shortcut", Language.EN, createDate))
 	}
 }

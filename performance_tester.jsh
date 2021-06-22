@@ -10,7 +10,7 @@ import static java.net.http.HttpResponse.BodyHandlers.ofString;
 	try {
 		HttpClient client = HttpClient.newBuilder().followRedirects(ALWAYS).build();
 		HttpRequest requestMain = HttpRequest.newBuilder(new URI("https://hexlog.dev")).build();
-		HttpRequest requestPage = HttpRequest.newBuilder(new URI("https://hexlog.dev/pl/posts/1.html")).build();
+		HttpRequest requestPage = HttpRequest.newBuilder(new URI("https://hexlog.dev/posts/1.html")).build();
 		int attempts = 10;
 
 		LocalDateTime startTime = LocalDateTime.now();

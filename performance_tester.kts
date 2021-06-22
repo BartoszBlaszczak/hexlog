@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 
 val client: HttpClient = HttpClient.newBuilder().followRedirects(ALWAYS).build()
 val requestMainPage = HttpRequest.newBuilder(URI("https://hexlog.dev")).build()
-val requestPost = HttpRequest.newBuilder(URI("https://hexlog.dev/pl/posts/1.html")).build()
+val requestPost = HttpRequest.newBuilder(URI("https://hexlog.dev/posts/1.html")).build()
 
 val startTime = LocalDateTime.now()
 
