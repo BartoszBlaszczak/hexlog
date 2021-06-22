@@ -84,9 +84,9 @@ object KtorServer {
 				filter { !it.request.uri.contains(Regex("static|posts/pics|favicon|health")) }
 				format {
 					"${it.request.headers["Referer"] ?: "direct"} REQUESTS " +
-							"${it.request.httpMethod.value} ${it.request.local.scheme}://${it.request.local.host}${it.request.uri} " +
-							"FROM: ${it.request.headers["User-agent"]} ${it.request.headers["Accept-language"]} " +
-							">> ${it.response.status()?.description} ${it.response.headers["location"] ?: ""}"
+					"${it.request.httpMethod.value} ${it.request.local.scheme}://${it.request.local.host}${it.request.uri} " +
+					"FROM: ${it.request.headers["User-agent"]} ${it.request.headers["Accept-language"]} " +
+					">> ${it.response.status()?.description} ${it.response.headers["location"] ?: ""}"
 				}
 			}
 			
