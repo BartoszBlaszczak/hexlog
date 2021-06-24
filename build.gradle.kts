@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.5.10"
+    kotlin("jvm") version "1.5.20"
     id("io.gitlab.arturbosch.detekt").version("1.17.1")
     jacoco
 }
@@ -21,7 +21,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-script-runtime:$kotlinVersion")
     
     implementation("org.xerial", "sqlite-jdbc", "3.34.0")
-    implementation("org.slf4j:slf4j-jdk14:1.7.30")
+    implementation("org.slf4j:slf4j-jdk14:1.7.31")
     implementation("com.github.BartoszBlaszczak:PropertiesLoader:1.0.4")
     
     implementation("io.ktor:ktor-server-core:$ktorVersion")
