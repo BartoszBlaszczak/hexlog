@@ -1,11 +1,11 @@
 plugins {
-    kotlin("jvm") version "1.5.10"
+    kotlin("jvm") version "1.5.20"
     id("io.gitlab.arturbosch.detekt").version("1.17.1")
     jacoco
 }
 
 group = "hex"
-version ="1.1.6_html_dsl"
+version ="1.1.7_html_dsl"
 
 repositories {
     mavenCentral()
@@ -16,7 +16,7 @@ dependencies {
     val ktorVersion = "1.6.0"
     
     implementation("org.xerial", "sqlite-jdbc", "3.34.0")
-    implementation("org.slf4j:slf4j-jdk14:1.7.30")
+    implementation("org.slf4j:slf4j-jdk14:1.7.31")
     implementation("com.github.BartoszBlaszczak:PropertiesLoader:1.0.4")
     implementation("com.rometools:rome:1.15.0")
     
@@ -38,12 +38,6 @@ tasks.jar {
     manifest { attributes["Main-Class"] = "ApplicationKt" }
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
     from(configurations.runtimeClasspath.get().map{ if (it.isDirectory) it else zipTree(it) })
-}
-
-
-jacoco {
-    println("Default jacoco version: $toolVersion")
-    toolVersion = "0.8.7"
 }
 
 tasks.jacocoTestCoverageVerification {
