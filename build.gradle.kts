@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "hex"
-version ="1.1.7-SNAPSHOT"
+version ="1.1.7"
 
 repositories {
     mavenCentral()
@@ -44,12 +44,6 @@ tasks.jar {
     manifest { attributes["Main-Class"] = "ApplicationKt" }
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
     from(configurations.runtimeClasspath.get().map{ if (it.isDirectory) it else zipTree(it) })
-}
-
-
-jacoco {
-    println("Default jacoco version: $toolVersion")
-    toolVersion = "0.8.7"
 }
 
 tasks.jacocoTestCoverageVerification {
