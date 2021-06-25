@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "hex"
-version ="1.1.7"
+version ="1.1.8"
 
 repositories {
     mavenCentral()
@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    val kotlinVersion = "1.5.10"
+    val kotlinVersion = "1.5.20"
     val ktorVersion = "1.6.0"
     
     //Force to use 1.5 version for transitive dependencies to avoid compilation warnings:
