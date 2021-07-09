@@ -114,7 +114,7 @@ class AppTest : RunningAppTest({
 			// then
 			response.status shouldBe OK
 			response.contentType() shouldBe ContentType.Application.Atom.withCharset(defaultCharset())
-			response.readText() shouldBe getSystemResource(expectedContent).readText()
+			response.readText().replace("\r\n", "\n") shouldBe getSystemResource(expectedContent).readText()
 		}
 	}
 }) {
