@@ -18,7 +18,7 @@ fun head(language: Language): HEAD.() -> Unit = {
 	meta("author", "Bartosz Błaszczak")
 	meta("viewport", "initial-scale=0.7")
 	
-	styleLink("/web/static/style.css")
+	styleLink("/web/static/style_v2.css")
 	styleLink("/web/static/fonts.css")
 	script("text/javascript", "/web/static/hexlog_v2.js") {}
 	
