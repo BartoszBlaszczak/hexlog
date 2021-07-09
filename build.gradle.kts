@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "hex"
-version ="1.1.8_html_dsl"
+version ="1.2.0"
 
 repositories {
     mavenCentral()
