@@ -34,11 +34,8 @@ import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.engine.sslConnector
 import io.ktor.server.netty.Netty
-import io.ktor.thymeleaf.Thymeleaf
 import io.ktor.util.pipeline.PipelineContext
 import org.slf4j.event.Level
-import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect
-import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver
 import java.io.FileInputStream
 import java.security.KeyStore
 import java.time.LocalDateTime
@@ -52,14 +49,6 @@ object KtorServer {
 		
 		module {
 			if (properties.useSSL) install(HttpsRedirect) { sslPort = properties.externalHttpsPort }
-			
-			install(Thymeleaf) {
-				setTemplateResolver(ClassLoaderTemplateResolver().apply {
-					prefix = "/web/template/"
-					characterEncoding = "utf-8"
-					addDialect(Java8TimeDialect())
-				})
-			}
 			
 			install(StatusPages) {
 				exception<NoSuchElementException> { it.message; call.respond(NotFound) }

@@ -1,79 +1,30 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <title>&lt; Hex.log &gt;</title>
-    
-    <meta charset="UTF-8">
-    <meta name="description" content="Blog Programistyczny">
-    <meta name="keywords" content="programowanie, rozwój oprogramowania, rzemiosło programowania, czysty kod, Kotlin, TDD, DDD">
+  <head>
+    <title>&lt;Hex.log &gt;</title>
+    <meta name="description" content="Blog Programistyczny" charset="UTF-8">
+    <meta name="keywords" content="programowanie, rozwój oprogramowania, rzemiosło programowania, czysty kod, Kotlin, DDD">
     <meta name="author" content="Bartosz Błaszczak">
     <meta name="viewport" content="initial-scale=0.7">
-    
-    <link rel="stylesheet" type="text/css" href="/web/static/style.css">
-    <link rel="stylesheet" type="text/css" href="/web/static/fonts.css">
-    <script src="/web/static/hexlog_v2.js" type="text/javascript" content="text/javascript"></script>
-    
-    <link rel="alternate" type="application/atom+xml" title="Powiadomienia dla Hex.log" href="/pl/feed" />
-</head>
-
-<body onresize="resize_posts()">
-<header class="main-header">
-	<a id="about" href="/pl/about" class="main-header-link">O blogu</a>
-    <div id="languages">
-        <a href="/pl" title="polski" class="main-header-link">
-            <img src="/web/static/icons/flag_pl.png" alt="polski" class="language-icon active"/>
-        </a>
-        <a href="/en" title="angielski" class="main-header-link">
-            <img src="/web/static/icons/flag_en.png" alt="angielski" class="language-icon"/>
-        </a>
-    </div>
-	<h1>
-		<br>
-		<a href="/pl" class="main-header-link">
-			<span class="main-header-title">&lt;&nbsp;Hex.log&nbsp;&gt;</span>
-			<BR>
-			<span>Code smart</span><span class="red">!</span>
-		</a>
-	</h1>
-	<br>
-	<h2>
-		<a href="https://github.com/BartoszBlaszczak/hexlog" target="_blank" title="GitHub" class="main-header-link">
-			<img src="/web/static/icons/github.png" alt="GitHub" class="main-header-icon"/>
-		</a>
-		<a href="https://www.linkedin.com/in/bartosz-blaszczak" target="_blank" title="LinkedIn" class="main-header-link">
-			<img src="/web/static/icons/linkedin.png" alt="LinkedIn" class="main-header-icon"/>
-		</a>
-		<a href="https://nofluffjobs.com/pl/profile/BartoszBlaszczak" target="_blank" title="No Fluff Jobs" class="main-header-link">
-			<img src="/web/static/icons/nfj.png" alt="No Fluff Jobs" class="main-header-icon"/>
-		</a>
-		<a href="https://stackoverflow.com/users/13603661/hex" target="_blank" title="Stack Overflow" class="main-header-link">
-			<img src="/web/static/icons/stackoverflow.png" alt="Stack Overflow" class="main-header-icon"/>
-		</a>
-		<a href="/pl/feed" target="_blank" title="Atom" class="main-header-link">
-			<img src="/web/static/icons/atom.png" alt="Atom" class="main-header-icon"/>
-		</a>
-		<a href="mailto:bartosz.piotr.blaszczak@gmail.com" target="_blank" title="Email" class="main-header-link">
-			<img src="/web/static/icons/email.png" alt="email" class="main-header-icon"/>
-		</a>
-		<br>
-		<br>
-	</h2>
-</header>
-<div class="main-body">
-    <br>
-    
-    <div class="post">
-        
-        <button id="1" class="post-header openable" onclick="toggle_collapse(this)" onauxclick="window.open(&#39;pl/post/1&#39;)">
-            <p>
-                <span class="post-date">05.05.2021</span>
-                <span class="post-title">tytuł</span>
-            </p>
-            <p>streszczenie</p>
+    <link rel="Stylesheet" type="text/css" href="/web/static/style_v2.css">
+    <link rel="Stylesheet" type="text/css" href="/web/static/fonts.css">
+    <script type="text/javascript" src="/web/static/hexlog_v2.js"></script>
+    <link href="/pl/feed" rel="alternate" type="application/atom+xml" title="Powiadomienia dla Hex.log">
+  </head>
+  <body onresize="resize_posts()">
+    <header class="main-header"><a href="/pl/about" class="main-header-link" id="about">O blogu</a>
+      <div id="languages"><a href="/pl" class="main-header-link" title="polski"><img alt="polski" src="/web/static/icons/flag_pl.png" class="language-icon active"></a>		<a href="/en" class="main-header-link" title="angielski"><img alt="angielski" src="/web/static/icons/flag_en.png" class="language-icon"></a></div>
+      <h1><br><a href="/pl" class="main-header-link"><span class="main-header-title">&lt; Hex.log &gt;</span><br><span>Code smart</span><span class="red">!</span></a></h1>
+<br>
+      <h2><a href="https://github.com/BartoszBlaszczak/hexlog" target="_blank" class="main-header-link" title="GitHub"><img alt="GitHub" src="/web/static/icons/github.png" class="main-header-icon"></a>		<a href="https://www.linkedin.com/in/bartosz-blaszczak" target="_blank" class="main-header-link" title="LinkedIn"><img alt="LinkedIn" src="/web/static/icons/linkedin.png" class="main-header-icon"></a>		<a href="https://nofluffjobs.com/pl/profile/BartoszBlaszczak" target="_blank" class="main-header-link" title="No Fluff Jobs"><img alt="No Fluff Jobs" src="/web/static/icons/nfj.png" class="main-header-icon"></a>		<a href="https://stackoverflow.com/users/13603661/hex" target="_blank" class="main-header-link" title="Stack Overflow"><img alt="Stack Overflow" src="/web/static/icons/stackoverflow.png" class="main-header-icon"></a>		<a href="/pl/feed" target="_blank" class="main-header-link" title="Atom"><img alt="Atom" src="/web/static/icons/atom.png" class="main-header-icon"></a>		<a href="mailto:bartosz.piotr.blaszczak@gmail.com" target="_blank" class="main-header-link" title="Email"><img alt="Email" src="/web/static/icons/email.png" class="main-header-icon"></a><br><br></h2>
+    </header>
+    <div class="main-body"><br>
+      <div class="post"><button class="post-header openable" id="1" onclick="toggle_collapse(this)" onAuxClick="window.open('/pl/post/1')">
+          <p><span class="post-date">05.05.2021</span><span class="post-title">tytuł</span></p>
+          <p>streszczenie</p>
         </button>
         <div class="post-panel"></div>
+      </div>
     </div>
-    <br>
-</div>
-</body>
+<br></body>
 </html>
