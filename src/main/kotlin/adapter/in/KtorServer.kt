@@ -4,36 +4,35 @@ import adapter.`in`.AtomController.atom
 import adapter.`in`.Controller.pages
 import adapter.`in`.Expiration.ONE_MONTH
 import appContext
-import io.ktor.application.ApplicationCall
-import io.ktor.application.ApplicationCallPipeline.ApplicationPhase.Call
-import io.ktor.application.call
-import io.ktor.application.install
-import io.ktor.application.log
-import io.ktor.features.CallLogging
-import io.ktor.features.DefaultHeaders
-import io.ktor.features.HttpsRedirect
-import io.ktor.features.StatusPages
 import io.ktor.http.HttpStatusCode.Companion.InternalServerError
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
-import io.ktor.http.content.files
-import io.ktor.http.content.resource
-import io.ktor.http.content.resources
-import io.ktor.http.content.static
-import io.ktor.request.httpMethod
-import io.ktor.request.uri
-import io.ktor.response.expires
-import io.ktor.response.respond
-import io.ktor.routing.Route
-import io.ktor.routing.get
-import io.ktor.routing.head
-import io.ktor.routing.routing
+import io.ktor.server.application.ApplicationCall
+import io.ktor.server.application.ApplicationCallPipeline.ApplicationPhase.Call
+import io.ktor.server.application.call
+import io.ktor.server.application.install
+import io.ktor.server.cio.CIO
 import io.ktor.server.engine.ApplicationEngineEnvironmentBuilder
 import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.engine.sslConnector
-import io.ktor.server.netty.Netty
+import io.ktor.server.http.content.files
+import io.ktor.server.http.content.resource
+import io.ktor.server.http.content.resources
+import io.ktor.server.http.content.static
+import io.ktor.server.plugins.callloging.CallLogging
+import io.ktor.server.plugins.defaultheaders.DefaultHeaders
+import io.ktor.server.plugins.httpsredirect.HttpsRedirect
+import io.ktor.server.plugins.statuspages.StatusPages
+import io.ktor.server.request.httpMethod
+import io.ktor.server.request.uri
+import io.ktor.server.response.expires
+import io.ktor.server.response.respond
+import io.ktor.server.routing.Route
+import io.ktor.server.routing.get
+import io.ktor.server.routing.head
+import io.ktor.server.routing.routing
 import io.ktor.util.pipeline.PipelineContext
 import org.slf4j.event.Level
 import java.io.FileInputStream
@@ -43,7 +42,7 @@ import java.time.LocalDateTime
 object KtorServer {
 	private val properties by appContext.properties
 	
-	private fun server() = embeddedServer(Netty, applicationEngineEnvironment {
+	private fun server() = embeddedServer(CIO, applicationEngineEnvironment {
 		if (properties.useSSL) connectSSL()
 		connector { port = properties.httpPort }
 		
@@ -51,11 +50,11 @@ object KtorServer {
 			if (properties.useSSL) install(HttpsRedirect) { sslPort = properties.externalHttpsPort }
 			
 			install(StatusPages) {
-				exception<NoSuchElementException> { it.message; call.respond(NotFound) }
+				exception<NoSuchElementException> { call, exception ->  exception.message; call.respond(NotFound) }
 				
-				exception<Throwable> { cause ->
-					cause.localizedMessage?.let(log::error)
-					log.error(cause.stackTraceToString())
+				exception<Throwable> { call, exception ->
+					exception.localizedMessage?.let(log::error)
+					log.error(exception.stackTraceToString())
 					call.respond(InternalServerError)
 				}
 			}
@@ -103,7 +102,7 @@ object KtorServer {
 		) { port = properties.httpsPort }
 	}
 	
-	fun run() = server().start()
+	fun run() = server().start(wait = appContext.serverWait)
 }
 
 fun PipelineContext<*, ApplicationCall>.setExpiration(expiration: Expiration) {

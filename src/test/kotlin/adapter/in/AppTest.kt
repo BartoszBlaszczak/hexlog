@@ -15,7 +15,7 @@ import io.ktor.client.engine.java.Java
 import io.ktor.client.request.get
 import io.ktor.client.request.header
 import io.ktor.client.statement.HttpResponse
-import io.ktor.client.statement.readText
+import io.ktor.client.statement.bodyAsText
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode.Companion.Found
 import io.ktor.http.HttpStatusCode.Companion.NotFound
@@ -76,7 +76,7 @@ class AppTest : RunningAppTest({
 			response.status shouldBe OK
 			getExpirencyDate(response) shouldBe expirency_date
 			val expected = getSystemResource(expected_content_path).readText().lines()
-			response.readText().lines().forEachIndexed { i, line ->  expected[i] shouldBe line }
+			response.bodyAsText().lines().forEachIndexed { i, line ->  expected[i] shouldBe line }
 			
 			response.headers["X-Frame-Options"] shouldBe "SAMEORIGIN"
 			response.headers["X-XSS-Protection"] shouldBe "1"
@@ -99,7 +99,7 @@ class AppTest : RunningAppTest({
 			
 			// then
 			response.status shouldBe NotFound
-			response.readText() shouldBe ""
+			response.bodyAsText() shouldBe ""
 		}
 	}
 	
@@ -115,7 +115,7 @@ class AppTest : RunningAppTest({
 			// then
 			response.status shouldBe OK
 			response.contentType() shouldBe ContentType.Application.Atom.withCharset(defaultCharset())
-			response.readText().replace("\r\n", "\n") shouldBe getSystemResource(expectedContent).readText()
+			response.bodyAsText().replace("\r\n", "\n") shouldBe getSystemResource(expectedContent).readText()
 		}
 	}
 }) {
