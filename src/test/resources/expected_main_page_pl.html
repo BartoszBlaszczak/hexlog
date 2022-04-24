@@ -8,7 +8,7 @@
     <meta name="viewport" content="initial-scale=0.7">
     <link rel="Stylesheet" type="text/css" href="/web/static/style_v3.css">
     <link rel="Stylesheet" type="text/css" href="/web/static/fonts.css">
-    <script type="text/javascript" src="/web/static/hexlog_v2.js"></script>
+    <script type="text/javascript" src="/web/static/hexlog_v3.js"></script>
     <link href="/pl/feed" rel="alternate" type="application/atom+xml" title="Powiadomienia dla Hex.log">
   </head>
   <body onresize="resize_posts()">
@@ -23,7 +23,7 @@
           <p><span class="post-date">05.05.2021</span><span class="post-title">tytuł</span></p>
           <p>streszczenie</p>
         </button>
-        <div class="post-panel"></div>
+        <div class="post-panel"><iframe class="post-frame" id="post_1_iframe" src="posts/1.html" onload="resize_post(this)" loading="lazy"></iframe></div>
       </div>
     </div>
 <br></body>

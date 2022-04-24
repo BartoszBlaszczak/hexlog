@@ -20,7 +20,7 @@ fun head(language: Language): HEAD.() -> Unit = {
 	
 	styleLink("/web/static/style_v3.css")
 	styleLink("/web/static/fonts.css")
-	script("text/javascript", "/web/static/hexlog_v2.js") {}
+	script("text/javascript", "/web/static/hexlog_v3.js") {}
 	
 	link(href = "/$language/feed", rel = "alternate", type = "application/atom+xml") { title = dictionary.feed }
 }

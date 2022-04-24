@@ -5,6 +5,7 @@ import appContext
 import domain.Language
 import domain.Post
 import domain.PostId
+import io.kotest.assertions.withClue
 import io.kotest.data.forAll
 import io.kotest.data.headers
 import io.kotest.data.row
@@ -75,8 +76,9 @@ class AppTest : RunningAppTest({
 			// then
 			response.status shouldBe OK
 			getExpirencyDate(response) shouldBe expirency_date
+			
 			val expected = getSystemResource(expected_content_path).readText().lines()
-			response.bodyAsText().lines().forEachIndexed { i, line ->  expected[i] shouldBe line }
+			response.bodyAsText().lines().forEachIndexed { i, line -> withClue("in line ${i+1}") { expected[i] shouldBe line } }
 			
 			response.headers["X-Frame-Options"] shouldBe "SAMEORIGIN"
 			response.headers["X-XSS-Protection"] shouldBe "1"
