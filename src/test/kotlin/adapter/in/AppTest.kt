@@ -75,7 +75,8 @@ class AppTest : RunningAppTest({
 			// then
 			response.status shouldBe OK
 			getExpirencyDate(response) shouldBe expirency_date
-			response.readText() shouldBe getSystemResource(expected_content_path).readText()
+			val expected = getSystemResource(expected_content_path).readText().lines()
+			response.readText().lines().forEachIndexed { i, line ->  expected[i] shouldBe line }
 			
 			response.headers["X-Frame-Options"] shouldBe "SAMEORIGIN"
 			response.headers["X-XSS-Protection"] shouldBe "1"
