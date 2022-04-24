@@ -1,11 +1,11 @@
 plugins {
     kotlin("jvm") version "1.6.21"
     id("io.gitlab.arturbosch.detekt").version("1.20.0")
-    jacoco
+    id("org.jetbrains.kotlinx.kover") version "0.5.0"
 }
 
 group = "hex"
-version ="1.4.0"
+version ="1.4.1"
 
 repositories {
     mavenCentral()
@@ -34,7 +34,13 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform {}
-    finalizedBy(tasks.jacocoTestCoverageVerification)
+}
+
+tasks.koverVerify {
+    rule {
+        name = "Minimal line coverage rate in percent"
+        bound { minValue = 90 }
+    }
 }
 
 tasks.jar {
@@ -42,15 +48,3 @@ tasks.jar {
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
     from(configurations.runtimeClasspath.get().map{ if (it.isDirectory) it else zipTree(it) })
 }
-
-tasks.jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                minimum = "0.9".toBigDecimal()
-            }
-        }
-    }
-}
-
-tasks.jacocoTestReport { dependsOn(tasks.test) }
