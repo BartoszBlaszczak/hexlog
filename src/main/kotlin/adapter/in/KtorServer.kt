@@ -50,12 +50,13 @@ object KtorServer {
 			if (properties.useSSL) install(HttpsRedirect) { sslPort = properties.externalHttpsPort }
 			
 			install(StatusPages) {
+				exception<NoSuchElementException> { call, exception ->  exception.message; call.respond(NotFound) }
+				
 				exception<Throwable> { call, exception ->
 					exception.localizedMessage?.let(log::error)
 					log.error(exception.stackTraceToString())
 					call.respond(InternalServerError)
 				}
-				exception<NoSuchElementException> { call, exception ->  exception.message; call.respond(NotFound) }
 			}
 			
 			install(DefaultHeaders) {
