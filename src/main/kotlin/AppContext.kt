@@ -10,7 +10,6 @@ open class AppContext(args: Array<String>) {
     
     open val postsRepository = lazy { from(Profile::postsRepository) ?: DatabasePostsRepository }
     open val databaseConnection = lazy { DriverManager.getConnection(properties.value.dbURL) }
-    open val serverWait = true
 }
 
 private interface Profile {
