@@ -11,7 +11,6 @@ import io.ktor.server.application.ApplicationCall
 import io.ktor.server.application.ApplicationCallPipeline.ApplicationPhase.Call
 import io.ktor.server.application.call
 import io.ktor.server.application.install
-import io.ktor.server.cio.CIO
 import io.ktor.server.engine.ApplicationEngineEnvironmentBuilder
 import io.ktor.server.engine.applicationEngineEnvironment
 import io.ktor.server.engine.connector
@@ -21,6 +20,7 @@ import io.ktor.server.http.content.files
 import io.ktor.server.http.content.resource
 import io.ktor.server.http.content.resources
 import io.ktor.server.http.content.static
+import io.ktor.server.netty.Netty
 import io.ktor.server.plugins.callloging.CallLogging
 import io.ktor.server.plugins.defaultheaders.DefaultHeaders
 import io.ktor.server.plugins.httpsredirect.HttpsRedirect
@@ -42,7 +42,7 @@ import java.time.LocalDateTime
 object KtorServer {
 	private val properties by appContext.properties
 	
-	private fun server() = embeddedServer(CIO, applicationEngineEnvironment {
+	private fun server() = embeddedServer(Netty, applicationEngineEnvironment {
 		if (properties.useSSL) connectSSL()
 		connector { port = properties.httpPort }
 		
@@ -102,7 +102,7 @@ object KtorServer {
 		) { port = properties.httpsPort }
 	}
 	
-	fun run() = server().start(wait = appContext.serverWait)
+	fun run() = server().start()
 }
 
 fun PipelineContext<*, ApplicationCall>.setExpiration(expiration: Expiration) {

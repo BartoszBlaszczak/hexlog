@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "hex"
-version ="1.5.0"
+version ="1.6.0"
 
 repositories {
     mavenCentral()
@@ -20,14 +20,14 @@ dependencies {
     
     val ktorVersion = "2.0.0"
     implementation("io.ktor:ktor-server-core:$ktorVersion")
-    implementation("io.ktor:ktor-server-cio:$ktorVersion")
+    implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-server-default-headers:$ktorVersion")
     implementation("io.ktor:ktor-server-http-redirect:$ktorVersion")
     implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
     implementation("io.ktor:ktor-server-call-logging:$ktorVersion")
     implementation("io.ktor:ktor-server-html-builder:$ktorVersion")
 
-    testImplementation("io.kotest:kotest-runner-junit5-jvm:5.2.2")
+    testImplementation("io.kotest:kotest-runner-junit5-jvm:5.2.3")
     testImplementation("io.ktor:ktor-client-core:$ktorVersion")
     testImplementation("io.ktor:ktor-client-java:$ktorVersion")
 }
