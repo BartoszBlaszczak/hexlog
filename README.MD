@@ -1,6 +1,6 @@
 # [< Hex.log >](https://hexlog.dev)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/BartoszBlaszczak/hexlog)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.5.20-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.6-blue.svg?logo=kotlin)](http://kotlinlang.org)
 [![Website](https://img.shields.io/website?label=hexlog.dev&url=https%3A%2F%2Fhexlog.dev%2Fhealth)](https://hexlog.dev)
 
 ![](src/main/resources/web/static/icons/favicon.ico)

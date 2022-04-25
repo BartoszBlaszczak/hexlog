@@ -21,18 +21,18 @@ fun header(language: Language): HEADER.() -> Unit = {
 		id = "languages"
 		a("/pl", classes = "main-header-link") {
 			title = dictionary.polish
-			img(dictionary.polish, "/web/static/icons/flag_pl.png", "language-icon" + if (language == PL) " active" else "")
+			span("language-icon" + if (language == PL) " active" else "") { +"🇵🇱" }
 		}
 		+"\t\t"
 		a("/en", classes = "main-header-link") {
 			title = dictionary.english
-			img(dictionary.english, "/web/static/icons/flag_en.png", "language-icon" + if (language == EN) " active" else "")
+			span("language-icon" + if (language == EN) " active" else "") { +"🏴󠁧󠁢󠁥󠁮󠁧󠁿" }
 		}
 	}
 	h1 {
 		br()
 		a("/$language", classes = "main-header-link") {
-			span("main-header-title") { +"<\u00A0Hex.log\u00A0>" }
+			span("main-header-title") { +"< Hex.log >" }
 			br()
 			span { +"Code smart" }; span("red") { +"!" }
 		}

@@ -8,7 +8,9 @@ import kotlinx.html.button
 import kotlinx.html.div
 import kotlinx.html.hr
 import kotlinx.html.id
+import kotlinx.html.iframe
 import kotlinx.html.onClick
+import kotlinx.html.onLoad
 import kotlinx.html.p
 import kotlinx.html.span
 
@@ -26,8 +28,15 @@ fun mainPage(language: Language, posts: Array<Post>): HTML.() -> Unit = page(lan
 				}
 				p { +post.shortcut }
 			}
-			div("post-panel")
-			if(index != posts.lastIndex) hr("post-separator")
+			div("post-panel") {
+				iframe(sandbox = null, "post-frame") {
+					id = "post_${post.id?.value}_iframe"
+					src = "posts/${post.id?.value}.html"
+					onLoad = "resize_post(this)"
+					attributes["loading"] = "lazy"
+				}
+			}
+			if (index != posts.lastIndex) hr("post-separator")
 		}
 	}
 }

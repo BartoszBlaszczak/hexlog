@@ -5,6 +5,7 @@ import appContext
 import domain.Language
 import domain.Post
 import domain.PostId
+import io.kotest.assertions.withClue
 import io.kotest.data.forAll
 import io.kotest.data.headers
 import io.kotest.data.row
@@ -15,7 +16,7 @@ import io.ktor.client.engine.java.Java
 import io.ktor.client.request.get
 import io.ktor.client.request.header
 import io.ktor.client.statement.HttpResponse
-import io.ktor.client.statement.readText
+import io.ktor.client.statement.bodyAsText
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode.Companion.Found
 import io.ktor.http.HttpStatusCode.Companion.NotFound
@@ -75,7 +76,9 @@ class AppTest : RunningAppTest({
 			// then
 			response.status shouldBe OK
 			getExpirencyDate(response) shouldBe expirency_date
-			response.readText() shouldBe getSystemResource(expected_content_path).readText()
+			
+			val expected = getSystemResource(expected_content_path).readText().lines()
+			response.bodyAsText().lines().forEachIndexed { i, line -> withClue("in line ${i+1}") { expected[i] shouldBe line } }
 			
 			response.headers["X-Frame-Options"] shouldBe "SAMEORIGIN"
 			response.headers["X-XSS-Protection"] shouldBe "1"
@@ -98,7 +101,7 @@ class AppTest : RunningAppTest({
 			
 			// then
 			response.status shouldBe NotFound
-			response.readText() shouldBe ""
+			response.bodyAsText() shouldBe ""
 		}
 	}
 	
@@ -114,7 +117,7 @@ class AppTest : RunningAppTest({
 			// then
 			response.status shouldBe OK
 			response.contentType() shouldBe ContentType.Application.Atom.withCharset(defaultCharset())
-			response.readText().replace("\r\n", "\n") shouldBe getSystemResource(expectedContent).readText()
+			response.bodyAsText().replace("\r\n", "\n") shouldBe getSystemResource(expectedContent).readText()
 		}
 	}
 }) {

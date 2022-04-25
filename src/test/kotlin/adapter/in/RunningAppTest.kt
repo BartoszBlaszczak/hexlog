@@ -4,12 +4,9 @@ import TestContext
 import io.kotest.core.spec.style.FunSpec
 import start
 
+@SuppressWarnings("UnnecessaryAbstractClass")
 abstract class RunningAppTest(body: FunSpec.() -> Unit) : FunSpec(body) {
 	companion object {
-		init {
-			//in development mode, Ktor replaces ClassLoader, so HexLogContext does not change (see ContextTest)
-			System.setProperty("io.ktor.development", "false")
-			start(TestContext)
-		}
+		init { start(TestContext) }
 	}
 }

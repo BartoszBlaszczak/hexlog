@@ -9,13 +9,13 @@ import adapter.`in`.page.postPage
 import appContext
 import domain.Language
 import domain.PostId
-import io.ktor.application.ApplicationCall
-import io.ktor.application.call
-import io.ktor.html.respondHtml
-import io.ktor.response.respondRedirect
-import io.ktor.routing.Routing
-import io.ktor.routing.get
-import io.ktor.routing.route
+import io.ktor.server.application.ApplicationCall
+import io.ktor.server.application.call
+import io.ktor.server.html.respondHtml
+import io.ktor.server.response.respondRedirect
+import io.ktor.server.routing.Routing
+import io.ktor.server.routing.get
+import io.ktor.server.routing.route
 import io.ktor.util.pipeline.PipelineInterceptor
 
 object Controller {
