@@ -1,6 +1,24 @@
+p {
+    color: lightgray;
+}
+
+span {
+    color: lightgray;
+}
+
+a {
+    color: burlywood;
+    text-decoration: none;
+}
+
+pre {
+    overflow: auto;
+}
+
 body {
     margin: 0;
-    background-color: lightgray;
+    color: lightgray;
+    background-color: rgb(52, 56, 57);
 }
 
 #about {
@@ -47,7 +65,7 @@ body {
 
 .main-header-link {
     text-decoration: none;
-    color: black;
+    color: lightgray;
 }
 
 .red {
@@ -95,8 +113,7 @@ body {
 
 /*posts grid*/
 .post-header {
-    background-color: #ccc;
-    color: #444;
+    background-color: rgb(56, 59, 61);
     width: 100%;
     border: none;
     text-align: left;
@@ -110,7 +127,7 @@ body {
 }
 
 .post-header.active, .post-header:hover {
-    background-color: #eee;
+    background-color: rgb(40, 40, 40);
 }
 
 .openable.post-header:after {
@@ -119,7 +136,7 @@ body {
     font-family: symbols, serif;
     font-size: xxx-large;
     font-weight: bold;
-    color: blue;
+    color: rgb(0, 90, 220);
     margin-left: 5px;
 }
 
@@ -135,5 +152,4 @@ body {
 
 .post-separator {
     margin: 0;
-    color: lightgray;
 }

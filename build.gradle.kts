@@ -1,11 +1,11 @@
 plugins {
-    kotlin("jvm") version "1.6.21"
+    kotlin("jvm") version "1.7.10"
     id("io.gitlab.arturbosch.detekt").version("1.20.0")
-    id("org.jetbrains.kotlinx.kover") version "0.5.0"
+    id("org.jetbrains.kotlinx.kover") version "0.5.1"
 }
 
 group = "hex"
-version ="1.6.0"
+version ="1.7.0"
 
 repositories {
     mavenCentral()
@@ -13,12 +13,12 @@ repositories {
 }
 
 dependencies {
-    implementation("org.xerial:sqlite-jdbc:3.36.0.3")
-    implementation("org.slf4j:slf4j-jdk14:1.7.36")
+    implementation("org.xerial:sqlite-jdbc:3.39.2.0")
+    implementation("org.slf4j:slf4j-jdk14:2.0.0")
     implementation("com.github.BartoszBlaszczak:PropertiesLoader:1.0.4")
     implementation("com.rometools:rome:1.18.0")
     
-    val ktorVersion = "2.0.0"
+    val ktorVersion = "2.1.0"
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-server-default-headers:$ktorVersion")
@@ -27,7 +27,7 @@ dependencies {
     implementation("io.ktor:ktor-server-call-logging:$ktorVersion")
     implementation("io.ktor:ktor-server-html-builder:$ktorVersion")
 
-    testImplementation("io.kotest:kotest-runner-junit5-jvm:5.2.3")
+    testImplementation("io.kotest:kotest-runner-junit5-jvm:5.4.1")
     testImplementation("io.ktor:ktor-client-core:$ktorVersion")
     testImplementation("io.ktor:ktor-client-java:$ktorVersion")
 }

@@ -102,7 +102,7 @@ object KtorServer {
 		) { port = properties.httpsPort }
 	}
 	
-	fun run() = server().start()
+	fun run() = server().start(wait = appContext.waitForServer)
 }
 
 fun PipelineContext<*, ApplicationCall>.setExpiration(expiration: Expiration) {

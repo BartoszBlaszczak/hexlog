@@ -3,4 +3,5 @@ import java.sql.DriverManager
 
 object TestContext : AppContext(arrayOf()) {
 	override val databaseConnection = lazy<Connection> { DriverManager.getConnection("jdbc:sqlite::memory:") }
+	override val waitForServer = false
 }

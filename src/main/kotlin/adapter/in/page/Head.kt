@@ -11,14 +11,14 @@ import kotlinx.html.title
 fun head(language: Language): HEAD.() -> Unit = {
 	val dictionary = dictionaries[language]!!
 	
-	title("<Hex.log >")
+	title("< Hex.log >")
 	
 	meta("description", dictionary.description, Charsets.UTF_8.name())
 	meta("keywords", dictionary.keywords)
 	meta("author", "Bartosz Błaszczak")
 	meta("viewport", "initial-scale=0.7")
 	
-	styleLink("/web/static/style_v3.css")
+	styleLink("/web/static/style_v4.css")
 	styleLink("/web/static/fonts.css")
 	script("text/javascript", "/web/static/hexlog_v3.js") {}
 	
