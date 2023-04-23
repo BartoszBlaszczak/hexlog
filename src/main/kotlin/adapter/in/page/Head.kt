@@ -23,4 +23,5 @@ fun head(language: Language): HEAD.() -> Unit = {
 	script("text/javascript", "/web/static/hexlog_v3.js") {}
 	
 	link(href = "/$language/feed", rel = "alternate", type = "application/atom+xml") { title = dictionary.feed }
+	link(href = "/web/static/icons/favicon.ico", type = "image/ico", rel = "shortcut icon")
 }

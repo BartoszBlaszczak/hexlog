@@ -1,7 +1,4 @@
-package adapter.`in`
 
-import PostCreator
-import appContext
 import domain.Language
 import domain.Post
 import domain.PostId
@@ -69,16 +66,17 @@ class AppTest : RunningAppTest({
 			row("/pl", nextDay, "expected_main_page_pl.html"),
 			row("/en/post/2", nextMonth, "expected_post_page_en.html"),
 			row("/pl/post/1", nextMonth, "expected_post_page_pl.html"),
-		).forAll { path, expirency_date, expected_content_path ->
+		).forAll { path, expirencyDate, expectedContentPath ->
 			// when
 			val response: HttpResponse = client.get(address + path)
 			
 			// then
 			response.status shouldBe OK
-			getExpirencyDate(response) shouldBe expirency_date
+			getExpirencyDate(response) shouldBe expirencyDate
 			
-			val expected = getSystemResource(expected_content_path).readText().lines()
-			response.bodyAsText().lines().forEachIndexed { i, line -> withClue("in line ${i+1}") { expected[i] shouldBe line } }
+			val expected = getSystemResource(expectedContentPath).readText().lines()
+			response.bodyAsText().lines().forEachIndexed { i, line -> withClue("in line ${i+1}") { line shouldBe expected[i] } }
+			
 			
 			response.headers["X-Frame-Options"] shouldBe "SAMEORIGIN"
 			response.headers["X-XSS-Protection"] shouldBe "1"
@@ -120,10 +118,29 @@ class AppTest : RunningAppTest({
 			response.bodyAsText().replace("\r\n", "\n") shouldBe getSystemResource(expectedContent).readText()
 		}
 	}
+	
+	test("get resource") {
+		table(
+			headers("path"),
+			row("/web/static/icons/favicon.ico"),
+			row("/web/static/icons/atom.png"),
+			row("/web/static/icons/email.png"),
+			row("/web/static/icons/github.png"),
+			row("/web/static/icons/linkedin.png"),
+			row("/web/static/icons/nfj.png"),
+			row("/web/static/icons/stackoverflow.png"),
+			row("/web/static/fonts.css"),
+			row("/web/static/hexlog_v3.js"),
+			row("/web/static/Inter-Regular.woff2"),
+			row("/web/static/style_v4.css"),
+			row("/web/static/symbols.ttf"),
+		).forAll { path ->
+			client.get(address + path).status shouldBe OK
+		}
+	}
 }) {
-	private val appProperties by appContext.properties
 	private val client = HttpClient(Java) { followRedirects = false; expectSuccess = false }
-	private val address = "http://localhost:${appProperties.httpPort}"
+	private val address = "http://localhost:${AppProperties.httpPort}"
 	
 	private val nextDay = LocalDate.now().plusDays(1)
 	private val nextMonth = LocalDate.now().plusMonths(1)

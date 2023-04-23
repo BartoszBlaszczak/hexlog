@@ -19,9 +19,9 @@ fun mainPage(language: Language, posts: Array<Post>): HTML.() -> Unit = page(lan
 	posts.forEachIndexed { index, post ->
 		div("post") {
 			button(classes = "post-header openable") {
-				id = "${post.id?.value}"
+				id = "${post.id.value}"
 				onClick = "toggle_collapse(this)"
-				attributes["onAuxClick"] = "window.open('/${language}/post/${post.id?.value}')"
+				attributes["onAuxClick"] = "window.open('/${language}/post/${post.id.value}')"
 				p {
 					span("post-date") { +post.createDate.formatted() }
 					span("post-title") { +post.title }
@@ -30,8 +30,8 @@ fun mainPage(language: Language, posts: Array<Post>): HTML.() -> Unit = page(lan
 			}
 			div("post-panel") {
 				iframe(sandbox = null, "post-frame") {
-					id = "post_${post.id?.value}_iframe"
-					src = "posts/${post.id?.value}.html"
+					id = "post_${post.id.value}_iframe"
+					src = "posts/${post.id.value}.html"
 					onLoad = "resize_post(this)"
 					attributes["loading"] = "lazy"
 				}

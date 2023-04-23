@@ -24,7 +24,7 @@ fun postPage(language: Language, post: Post): HTML.() -> Unit = page(language) {
 		div("post-panel") {
 			iframe(classes = "post-frame") {
 				onLoad = "resize_post(this)"
-				src = "/posts/${post.id?.value}.html"
+				src = "/posts/${post.id.value}.html"
 			}
 		}
 	}

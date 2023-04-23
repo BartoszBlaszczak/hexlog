@@ -1,12 +1,7 @@
 
 import adapter.`in`.KtorServer
 
-lateinit var appContext : AppContext
-
-fun main(args: Array<String>) = start(AppContext(args))
-
-fun start(ctx: AppContext) {
-    appContext = ctx
+fun main() {
     configureLogs()
     KtorServer.run()
 }
