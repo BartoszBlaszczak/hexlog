@@ -19,9 +19,7 @@ import io.ktor.http.HttpStatusCode.Companion.Found
 import io.ktor.http.HttpStatusCode.Companion.NotFound
 import io.ktor.http.HttpStatusCode.Companion.OK
 import io.ktor.http.contentType
-import io.ktor.http.withCharset
 import java.lang.ClassLoader.getSystemResource
-import java.nio.charset.Charset.defaultCharset
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME
 
@@ -114,7 +112,7 @@ class AppTest : RunningAppTest({
 			
 			// then
 			response.status shouldBe OK
-			response.contentType() shouldBe ContentType.Application.Atom.withCharset(defaultCharset())
+			response.contentType() shouldBe ContentType.Application.Atom
 			response.bodyAsText().replace("\r\n", "\n") shouldBe getSystemResource(expectedContent).readText()
 		}
 	}
