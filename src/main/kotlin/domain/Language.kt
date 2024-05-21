@@ -3,7 +3,7 @@ package domain
 import java.util.Locale
 
 enum class Language(val locale: Locale) {
-    PL(Locale("pl")),
+    PL(Locale.of("pl")),
     EN(Locale.ENGLISH);
 
     fun supports(locale: Locale): Boolean = this.locale.language.equals(locale.language, ignoreCase = true)
