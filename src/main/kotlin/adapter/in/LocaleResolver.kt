@@ -22,7 +22,7 @@ class AcceptLanguageHeaderSingleValue(headerValue: String) : Comparable<AcceptLa
 		val headerParts = headerValue.split(';')
 		q = headerParts.elementAtOrNull(1)?.substringAfter('=')?.toFloat() ?: 1.toFloat()
 		val localeParts = headerParts[0].split('-')
-		locale = Locale.of(localeParts[0], localeParts.elementAtOrNull(1) ?: "", localeParts.elementAtOrNull(2) ?: "")
+		locale = Locale(localeParts[0], localeParts.elementAtOrNull(1) ?: "", localeParts.elementAtOrNull(2) ?: "")
 		supportedLanguage = Language.entries.firstOrNull { it.supports(locale) }
 	}
 	
