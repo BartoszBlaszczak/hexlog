@@ -44,21 +44,6 @@ fun header(language: Language): HEADER.() -> Unit = {
 			img("GitHub", "/web/static/icons/github.png", "main-header-icon")
 		}
 		+"\t\t"
-		a("https://www.linkedin.com/in/bartosz-blaszczak", "_blank", "main-header-link") {
-			title = "LinkedIn"
-			img("LinkedIn", "/web/static/icons/linkedin.png", "main-header-icon")
-		}
-		+"\t\t"
-		a("https://nofluffjobs.com/pl/profile/BartoszBlaszczak", "_blank", "main-header-link") {
-			title = "No Fluff Jobs"
-			img("No Fluff Jobs", "/web/static/icons/nfj.png", "main-header-icon")
-		}
-		+"\t\t"
-		a("https://stackoverflow.com/users/13603661/hex", "_blank", "main-header-link") {
-			title = "Stack Overflow"
-			img("Stack Overflow", "/web/static/icons/stackoverflow.png", "main-header-icon")
-		}
-		+"\t\t"
 		a("/$language/feed", "_blank", "main-header-link") {
 			title = "Atom"
 			img("Atom", "/web/static/icons/atom.png", "main-header-icon")

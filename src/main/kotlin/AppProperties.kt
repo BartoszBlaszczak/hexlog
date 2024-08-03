@@ -1,5 +1,5 @@
 
-object AppProperties {
+data object AppProperties {
 	
 	val useSSL: Boolean = getProperty("useSSL", "true").toBoolean()
 	val httpPort: Int = getProperty("httpPort", "8060").toInt()
@@ -13,7 +13,17 @@ object AppProperties {
 	val address: String = getProperty("address", "https://hexlog.dev")
 	
 	init {
-		logger.info(toString())
+		logger.info("""HexLogProperties:
+			|useSSL: $useSSL
+			|httpPort: $httpPort
+			|httpsPort: $httpsPort
+			|externalHttpsPort: $externalHttpsPort
+			|keystoreType: $keystoreType
+			|keystorePath: $keystorePath
+			|certAlias: $certAlias
+			|dbURL: $dbURL
+			|address: $address
+			|""".trimMargin())
 	}
 }
 
