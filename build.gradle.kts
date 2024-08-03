@@ -1,11 +1,11 @@
 plugins {
     kotlin("jvm") version "2.0.0"
     id("io.gitlab.arturbosch.detekt").version("1.23.6")
-    id("org.jetbrains.kotlinx.kover") version "0.8.0"
+    id("org.jetbrains.kotlinx.kover") version "0.8.3"
 }
 
 group = "hex"
-version ="2.1.0"
+version ="2.1.1"
 
 repositories {
     mavenCentral()
@@ -16,7 +16,7 @@ dependencies {
     implementation("org.slf4j:slf4j-jdk14:2.0.13")
     implementation("com.rometools:rome:2.1.0")
     
-    val ktorVersion = "2.3.11"
+    val ktorVersion = "2.3.12"
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-server-default-headers:$ktorVersion")

@@ -62,5 +62,5 @@ object Controller {
 	private fun getLanguageFromHeader(call: ApplicationCall): Language? =
 		call.request.headers["Accept-language"]?.let(::getLanguageFromHeader)
 	
-	private fun getLanguageFromUrl(call: ApplicationCall) = Language.find(call.parameters["language"]!!)
+	private fun getLanguageFromUrl(call: ApplicationCall) = Language[call.parameters["language"]!!]
 }

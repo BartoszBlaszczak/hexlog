@@ -9,7 +9,6 @@ abstract class RunningAppTest(body: FunSpec.() -> Unit) : FunSpec(body) {
 			System.setProperty("useSSL", false.toString())
 			System.setProperty("address", "http://localhost:8060")
 			System.setProperty("dbURL", "jdbc:sqlite:file::memory:?cache=shared")
-			PostCreator
 			thread { main() }
 		}
 	}

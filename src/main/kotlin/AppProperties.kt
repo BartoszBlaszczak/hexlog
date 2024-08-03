@@ -13,17 +13,7 @@ object AppProperties {
 	val address: String = getProperty("address", "https://hexlog.dev")
 	
 	init {
-		logger.info("""HexLogProperties:
-			|useSSL: $useSSL
-			|httpPort: $httpPort
-			|httpsPort: $httpsPort
-			|externalHttpsPort: $externalHttpsPort
-			|keystoreType: $keystoreType
-			|keystorePath: $keystorePath
-			|certAlias: $certAlias
-			|dbURL: $dbURL
-			|address: $address
-			|""".trimMargin())
+		logger.info(toString())
 	}
 }
 

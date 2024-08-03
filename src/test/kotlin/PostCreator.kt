@@ -5,9 +5,8 @@ import java.sql.DriverManager
 
 object PostCreator {
 	private val databaseConnection = DriverManager.getConnection(AppProperties.dbURL)
-	private val insertPost by lazy {
-		databaseConnection.prepareStatement(
-			"insert into post values (?, ?, ?, ?, ?, ?) on conflict(id) do nothing;"
+	private val insertPost by lazy { databaseConnection.prepareStatement(
+		"insert into post values (?, ?, ?, ?, ?, ?) on conflict(id) do nothing;"
 		)
 	}
 	

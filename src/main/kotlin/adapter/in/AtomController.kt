@@ -22,7 +22,7 @@ object AtomController {
 	
 	fun Routing.atom() {
 		get("{language}/feed") {
-			val language = Language.find(call.parameters["language"]!!)
+			val language = Language[call.parameters["language"]!!]
 			call.respondText(contentType = Atom) { prepareFeed(language) }
 		}
 	}

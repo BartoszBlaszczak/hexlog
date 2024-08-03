@@ -1,42 +1,44 @@
 package adapter.out
 
 import AppProperties
+import atShutdown
 import domain.Language
 import domain.Post
 import domain.PostId
 import domain.PostsRepository
 import logger
 import java.io.File
-import java.lang.Runtime.getRuntime
+import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.ResultSet
 import java.time.LocalDateTime
 
 object DatabasePostsRepository : PostsRepository {
-	private val connection = DriverManager.getConnection(AppProperties.dbURL)
-	
-	private val findPost by lazy { connection.prepareStatement("select * from post where post.id = ?;") }
-	private val findAllPosts by lazy {
-		connection.prepareStatement("select * from post where post.language = ? order by post.create_date desc;")
-	}
+	private val connection = DriverManager.getConnection(AppProperties.dbURL).atShutdown(Connection::close)
+	private val findPostById by lazy { connection.prepareStatement("select * from post where post.id = ?;") }
+	private val findAllPostsByLanguage
+			by lazy { connection.prepareStatement("select * from post where post.language = ? order by post.create_date desc;") }
 	
 	init {
 		if (connection.isClosed) logger.error("Database connection is closed!")
 		else logger.info("Database connection is open")
 		connection.prepareStatement(File("db.sql").readText()).execute()
-		getRuntime().addShutdownHook(Thread(connection::close))
 	}
 	
 	override fun findAll(language: Language): Array<Post> {
-		val posts = mutableListOf<Post>()
-		findAllPosts.setString(1, language.name)
-		findAllPosts.executeQuery().use { while (it.next()) posts.add(toPost(it)) }
-		return posts.toTypedArray()
+		findAllPostsByLanguage.setString(1, language.name)
+		return findAllPostsByLanguage.executeQuery().results(::toPost).toTypedArray()
 	}
 	
 	override fun find(id: PostId): Post? {
-		findPost.setLong(1, id.value)
-		return findPost.executeQuery().use { resultSet -> resultSet.takeIf { it.next() }?.let(::toPost) }
+		findPostById.setLong(1, id.value)
+		return findPostById.executeQuery().results(::toPost).firstOrNull()
+	}
+	
+	private fun <T> ResultSet.results(mapper: (ResultSet) -> T): List<T> {
+		val results = mutableListOf<T>()
+		use { while (it.next()) results.add(mapper(it)) }
+		return results
 	}
 	
 	private fun toPost(resultSet: ResultSet): Post = Post(
