@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.xerial:sqlite-jdbc:3.45.3.0")
+    implementation("org.xerial:sqlite-jdbc:3.46.0.1")
     implementation("org.slf4j:slf4j-jdk14:2.0.13")
     implementation("com.rometools:rome:2.1.0")
     
@@ -25,7 +25,7 @@ dependencies {
     implementation("io.ktor:ktor-server-call-logging:$ktorVersion")
     implementation("io.ktor:ktor-server-html-builder:$ktorVersion")
 
-    testImplementation("io.kotest:kotest-runner-junit5-jvm:5.9.0")
+    testImplementation("io.kotest:kotest-runner-junit5-jvm:5.9.1")
     testImplementation("io.ktor:ktor-client-core:$ktorVersion")
     testImplementation("io.ktor:ktor-client-java:$ktorVersion")
 }
