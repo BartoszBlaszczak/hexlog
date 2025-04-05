@@ -46,3 +46,13 @@ kover {
         }
     }
 }
+
+application {
+    mainClass = "ApplicationKt"
+}
+
+tasks.jar {
+    manifest { attributes["Main-Class"] = "ApplicationKt" }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    from(configurations.runtimeClasspath.get().map{ if (it.isDirectory) it else zipTree(it) })
+}
