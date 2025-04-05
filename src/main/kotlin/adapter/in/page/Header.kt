@@ -39,19 +39,19 @@ fun header(language: Language): HEADER.() -> Unit = {
 	}
 	br()
 	h2 {
-		a("https://github.com/BartoszBlaszczak/hexlog", "_blank", "main-header-link") {
+		a("https://github.com/BartoszBlaszczak/hexlog", "_blank", classes = "main-header-link") {
 			title = "GitHub"
-			img("GitHub", "/web/static/icons/github.png", "main-header-icon")
+			img("GitHub", "/web/static/icons/github.png", classes = "main-header-icon")
 		}
 		+"\t\t"
-		a("/$language/feed", "_blank", "main-header-link") {
+		a("/$language/feed", "_blank", classes = "main-header-link") {
 			title = "Atom"
-			img("Atom", "/web/static/icons/atom.png", "main-header-icon")
+			img("Atom", "/web/static/icons/atom.png", classes = "main-header-icon")
 		}
 		+"\t\t"
-		a("mailto:bartosz.piotr.blaszczak@gmail.com", "_blank", "main-header-link") {
+		a("mailto:bartosz.piotr.blaszczak@gmail.com", "_blank", classes = "main-header-link") {
 			title = "Email"
-			img("Email", "/web/static/icons/email.png", "main-header-icon")
+			img("Email", "/web/static/icons/email.png", classes = "main-header-icon")
 		}
 		br()
 		br()

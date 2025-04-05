@@ -3,15 +3,13 @@ package adapter.`in`
 import domain.Language
 import java.util.Locale
 
-object LocaleResolver {
-	fun getLanguageFromHeader(acceptLanguageHeaderValue: String?): Language? =
-		acceptLanguageHeaderValue
-			?.split(',')
-			?.map(::AcceptLanguageHeaderSingleValue)
-			?.filter(AcceptLanguageHeaderSingleValue::isSupported)
-			?.maxOrNull()
-			?.supportedLanguage
-}
+fun getLanguageFromHeader(acceptLanguageHeaderValue: String?): Language? =
+	acceptLanguageHeaderValue
+		?.split(',')
+		?.map(::AcceptLanguageHeaderSingleValue)
+		?.filter(AcceptLanguageHeaderSingleValue::isSupported)
+		?.maxOrNull()
+		?.supportedLanguage
 
 class AcceptLanguageHeaderSingleValue(headerValue: String) : Comparable<AcceptLanguageHeaderSingleValue> {
 	private val locale: Locale

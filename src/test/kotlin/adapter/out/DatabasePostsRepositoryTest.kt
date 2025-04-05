@@ -19,7 +19,7 @@ class DatabasePostsRepositoryTest : FunSpec({
 		val post3 = Post(randomId(), title = "title 3", shortcut = "shortcut 3", language = EN).also(PostCreator::insert)
 		
 		// when
-		val found = DatabasePostsRepository.findAll(PL)
+		val found = findAllPosts(PL)
 		
 		// then
 		found.any { it basedOn post1 } shouldBe true
@@ -32,7 +32,7 @@ class DatabasePostsRepositoryTest : FunSpec({
 		val post = Post(PostId(nextLong()), "tytuł", "streszczenie", PL).also(PostCreator::insert)
 		
 		// when
-		val found = DatabasePostsRepository.find(post.id)
+		val found = findPost(post.id)
 		
 		// then
 		found shouldBe post

@@ -23,7 +23,7 @@ class LocaleResolverTest : FunSpec({
             row("pl-PL,en-us;q=0.7,en;q=0.3", PL),
             row("de,pl-PL;q=0.9,en-us;q=0.7,en;q=0.3", PL),
         ).forAll { header, expected ->
-            LocaleResolver.getLanguageFromHeader(header) shouldBe expected
+            getLanguageFromHeader(header) shouldBe expected
         }
     }
 })
